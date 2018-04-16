@@ -1,0 +1,44 @@
+<!--pages/cart/cart.wxml-->
+<view class='myCollection'>
+  <view  class='iconfont'>
+    <text> 您正在安全购物环境中，请放心购物</text>
+  </view> 
+  <view style='width:100%;height:70rpx;'></view>
+  <view class='list' wx:for="{{cartList}}">
+    <view class='goods' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}">
+      <view class='checkbox'>
+        <icon type="{{item.status ? 'success' : 'circle'}}" color="{{item.status ? '#f51231' : '#a6a6a6'}}" size='18' bindtap="selectProduct" data-id="{{item.product_id}}" data-status="{{item.status}}"></icon>
+      </view>
+      <view class='cartIcon'>
+        <view class='jian {{item.stopjian}}' bindtap="changeNumber" data-id="{{item.product_id}}" data-type="min">-</view>
+        <view class='num'>{{item.num}}</view>
+        <view class='jia {{item.stopjia}}' bindtap="changeNumber" data-id="{{item.product_id}}" data-type="plus">+</view>
+      </view>
+      <image class='pic' src='{{item.img}}'></image>
+      <view class='gDetail'>
+        <view class='gName'>{{item.good_name}}</view>
+        <view class='gSpec'>
+          <text class='spec' wx:for="{{item.spec}}">#{{item}}</text>
+          <!-- <text class='freight'>免运费</text> -->
+        </view>
+        <text class='gPrice'>￥{{item.sell_price}}</text>
+      </view>
+    </view>
+    <view data-id="{{item.product_id}}" bindtap = "delItem" class="inner del">删除</view> 
+  </view>
+</view> 
+<view style='width:100%;height:110rpx;'></view>   
+<view class='balance'>
+    <view class='checkbox'>
+      <icon type="{{checkedStatus ? 'success' : 'circle'}}" color="{{checkedStatus ? '#f51231' : '#a6a6a6'}}" size='18' bindtap="selectProduct"  data-id="0" data-status="{{checkedStatus}}"></icon>
+      <text>全选</text>
+    </view>
+    <view class='price'>
+      <view class='num'>
+        <text class='font'>合计：</text>
+        <text class='priceNum'>￥{{priceNum}}</text>
+      </view>
+    </view>
+    <button bindtap='settle'>结算({{nums}})</button>
+</view>
+

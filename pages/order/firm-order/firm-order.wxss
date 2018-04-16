@@ -1,0 +1,376 @@
+/* pages/order/my-order/firm-order.wxss */
+Page{
+  background: #f1f2f7;
+}
+.orderScroll ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent; 
+}
+.order-top {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  position: relative;
+  height: 170rpx;
+  margin-top:10rpx;
+  border: none;
+  background-color: #fff;
+}
+.order-top-address {
+    display: flex;
+    flex-flow: row;
+    padding: 0 30rpx;
+    padding-top:15rpx; 
+}
+.order-top text{
+  font-size: 22rpx;
+  font-weight: bold;
+  margin-right:30rpx;
+}
+.order-default {
+  width: 60rpx;
+  height:30rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  color:#f51322;
+  border: 1px solid #ffa3b7;
+  font-size: 22rpx;
+}
+.order-add {
+  width: 100rpx;
+  height:65rpx;
+}
+.order-top-down {
+  display: flex;
+  flex-flow: row;
+  color:#666; 
+  font-size: 24rpx;
+  padding: 15rpx 30rpx;
+}
+.weui-order-address-next {
+  margin-bottom:25rpx;
+}
+.weui-media-box__title {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.weui-media-box__thumb {
+  border:1rpx solid red;
+  width:130rpx;
+  height:130rpx;
+  margin-top:-5rpx;
+}
+.weui-media-box__desc {
+  font-size: 24rpx;
+}
+.product-price {
+  color: #f51322;
+  font-size: 28rpx;
+}
+.product-sale {
+  font-size: 20rpx;
+  color:#0094ed;
+}
+
+/* 发票 */
+.invoices{
+  display: flex;
+  height: 260rpx;
+  line-height: 230rpx;
+  margin: 20rpx 0;
+  padding: 20rpx 30rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;  
+  background-color: #fff;
+}
+.invoices .topic{
+  width: 184rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333333;
+  letter-spacing: 2rpx;
+  border-right: 1rpx solid #e5e5e5;
+}
+.invoices .iDetail{
+  display: flex;
+  flex-flow: column;  
+  justify-content: space-around; 
+  width: 474rpx;
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.invoices .iDetail view:nth-child(1),.invoices .iDetail view:nth-child(2){
+  display: flex;
+  align-items: center;
+  height: 26rpx;
+  line-height: 26rpx; 
+}
+.invoices .iDetail view:nth-child(3),.invoices .iDetail view:nth-child(4){
+  display: flex;
+  height: 36rpx;
+  line-height: 36rpx;
+}
+.invoices .iDetail view:nth-child(3) label{
+  display: flex;
+  align-items: center;
+}
+
+.invoices .iDetail checkbox .wx-checkbox-input{
+  background-color: #ebebeb;
+  border: 1rpx solid #d4d4d4;
+  width: 24rpx;
+  height: 24rpx;
+}
+.invoices .iDetail checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  color: #999999;
+  font-size: 24rpx;
+}
+.invoices .iDetail .inp{
+  width: 250rpx;
+  min-height: 36rpx;
+  padding-left: 12rpx;
+  font-size: 24rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
+  border: 1rpx solid #d4d4d4;
+}
+
+/* 优惠券积分 */
+.order-activity {
+  background: #fff;
+  margin-top:20rpx; 
+}
+.weui-cell__ft_in-access {
+  font-size:20rpx;
+  color:#333;
+}
+.order-favorable{
+  display: inline-block;
+   vertical-align: middle;
+   font-size:24rpx;
+   font-weight: bold;
+}
+.order-num {
+  color:#f32e37;
+  margin-left: 5px;
+  border:1rpx solid #f32e37;
+  border-radius:5rpx;
+  display:inline;
+  font-size:20rpx; 
+}
+.order-integral {
+  color:#999;
+}
+.weui-cell_access-activity {
+  height: 40rpx;
+}
+.goods-info {
+  background: #fff;
+  margin: 20rpx 0;
+}
+.weui-form-preview__label {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+}
+.weui-form-preview__value {
+  font-size: 24rpx;
+  font-weight: bold;
+  color:  #f52322;
+}
+.weui-cell_pay {
+  display: flex;
+  flex-flow:row; 
+  background: #fff;
+}
+.order-amount {
+  width: 530rpx;
+  height:90rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  text-align: center;
+  line-height:90rpx;
+}
+.order-amount text {
+  color:#f32e37;
+}
+.order-pay-button {
+  width: 220rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #fff;
+  background: #f32e37;
+}
+
+/* 优惠券覆盖层 */
+.couponCover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  display: none; 
+  background-color: rgba( 0, 0, 0, .5)
+}
+.couponCover .container{
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  height: auto;
+}
+.couponCover .title{
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  background-color: #f3f3f3;
+}
+.couponCover .title text{
+  font-size: 30rpx;
+  color: #333333;
+}
+.couponCover .title .btn{
+  position: absolute;
+  right: 20rpx;
+}
+.couponCover .scrollContent{
+  height: 450rpx;
+  background-color: #fff;
+}
+.scrollContent .noneInfo{
+  width: 100%;
+  height: 100%;
+  line-height: 450rpx;  
+  text-align: center;
+}
+.scrollContent ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent; 
+}
+.couponCover .prompt{
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #333333;
+  border-top: 1rpx solid #ffe9be;
+  background-color: #fff3db;
+}
+.couponCover .prompt text{
+  color: #f10000;
+}
+.couponCover .content .coupon{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 190rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eaeaea;  
+}
+.coupon .money text{
+  font-size: 24rpx;
+  color: #f10000;
+}
+.coupon .money .num{
+  font-size: 32rpx;
+}
+
+.coupon .detail{
+  display: flex;
+  justify-content: space-between;
+}
+.coupon .detail .cDes{
+  display: flex;
+  flex-flow: column;
+  line-height: 32rpx;
+}
+.cDes text{
+  font-size: 24rpx;
+  color: #4b4b4b;
+}
+.cDes .detail .cDes text:nth-child(1){
+  font-size: 26rpx;
+}
+.coupon .detail .handleBtn{
+  width: 120rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  color: #f10000; 
+  font-size: 28rpx;
+  margin-top:20rpx;
+  border:1rpx solid #f10000;
+  border-radius: 20rpx;
+  background-color: #fff4f4;
+}
+
+.container .ensure{
+  text-align: center;
+  padding: 108rpx 0 180rpx 0;
+  background-color: #fff;
+}
+.container .ensure text{
+  display: inline-block;
+  width: 280rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background-color: #f51322;
+}
+.coverHide{
+  display: none
+}
+.coverShow{
+  display: block
+}
+
+/* 积分折扣  */
+.explain{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666666;
+  background-color: #fff;
+}
+ .pointSet{
+  display: flex;
+  height: 110rpx;
+  line-height: 110rpx;
+  background-color: #fff;
+}
+.pointSet .use,.pointSet .unuse{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.pointSet text{
+  font-size: 30rpx;
+  color: #333333;
+}
+.pointSet view text:nth-child(1){
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 50%;
+  border: 1rpx solid #c3c3c3;
+  margin-right: 20rpx;
+}
+
+.selectPoint{
+  border: 1rpx solid #f23030;
+  background-color: #f23030;
+}
+button {
+  border-radius: 0;
+}

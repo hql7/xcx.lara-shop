@@ -1,0 +1,121 @@
+<!--pages/user/person/person.wxml-->
+<!-- 头部 -->
+  <view class='header'>
+    <view>
+      <text class='set iconfont icon-shezhi' bindtap='skip' data-url='../../mine/userInfo/userInfo'></text>
+      <text class='msg iconfont icon-xiaoxi' bindtap='skip' data-url='../../mine/msg/msg'></text>
+    </view>
+    <view class='headPic' bindtap='skip' data-url='../../mine/userInfo/userInfo'>
+      <image wx:if="{{userInfo.head_pic == null}}" class='pic' src='{{wxInfo.avatarUrl}}'></image>
+      <image wx:else class='pic' src='{{userInfo.head_pic}}'></image>
+      <text wx:if="{{userInfo.username == null}}">{{wxInfo.nickName}}</text>
+      <text wx:else>{{userInfo.username}}</text>
+    </view>
+  </view>    
+  <!-- 个人积分  -->
+  <view class='myPoint'>
+    <view bindtap='skip' data-url='../../mine/myPoints/myPoints'>
+      <text class='num' wx:if="{{point>0}}">{{point}}</text>
+      <text class='num' wx:else>0</text> 
+      <text>积分</text>
+    </view>
+    <view bindtap='skip' data-url='../../mine/voucher/voucher'>
+      <text class='num' wx:if="{{voucher_num>0}}">{{voucher_num}}</text>  
+      <text class='num' wx:else>0</text>  
+      <text>优惠券</text>
+    </view>
+    <view bindtap='skip' data-url='../../mine/myBalance/myBalance'>
+      <text class='num' wx:if="{{balance>0}}">￥{{balance ? balance : 0}}</text>  
+       <text class='num' wx:else>￥0</text>   
+      <text>账户余额</text>      
+    </view>
+  </view>
+  <!-- 订单  -->
+    <view class='order'>
+      <view class='orderTop'>
+        <text class='title'>我的订单</text>
+        <view class='more' bindtap='showOrders' data-status='0'>查看所有订单<text class='iconfont icon-enter'></text></view>
+      </view>
+      <view class='orderContent'>
+        <view class='status' bindtap='showOrders' data-status='1'>
+          <view class='num' wx:if="{{userInfo.unpaid_num>0}}">{{userInfo.unpaid_num}}</view>
+          <text class='iconfont icon-fukuan'></text>
+          <text>待付款</text>
+        </view>
+        <view class='status' bindtap='showOrders' data-status='2'>
+          <view class='num' wx:if="{{userInfo.wait_send>0}}">{{userInfo.wait_send}}</view>
+          <text class='iconfont icon-fahuo'></text>
+          <text>待发货</text>
+        </view>
+        <view class='status' bindtap='showOrders' data-status='3'>
+          <view class='num' wx:if="{{userInfo.delivery_num>0}}">{{userInfo.delivery_num}}</view>
+          <text class='iconfont icon-shouhuo'></text>
+          <text>待收货</text>
+        </view>
+        <view class='status' bindtap='showReviews' data-status='4' data->
+          <view class='num' wx:if="{{userInfo.review_num>0}}">{{userInfo.review_num}}</view>
+          <text class='iconfont icon-pingjia'></text>
+          <text>待评价</text>
+        </view>
+        <view class='status' bindtap='skip' data-url='../../order/afterGoods/afterGoods'>
+          <!-- <view class='num' wx:if="{{userInfo.after_num>0}}">{{userInfo.after_num}}</view> -->
+          <text class='iconfont icon-shouhou'></text>
+          <text>退换/售后</text>
+        </view>
+      </view>
+    </view>
+    
+  <!-- 功能  -->
+    <view class='function'>
+      <view class='item'>
+        <view class='fLeft' bindtap='skip' data-url='../myCollection/myCollection'>
+          <text class='icon iconfont icon-shoucang'></text>
+          <text>我的收藏</text>
+        </view>
+        <text class='iconfont icon-enter'></text>
+      </view>
+      <view class='item'>
+        <view class='fLeft' bindtap='skip' data-url='../myFootprints/myFootprints'>
+          <text class='icon iconfont icon-zuji'></text>
+          <text>我的足迹</text>
+        </view>
+        <text class='iconfont icon-enter'></text>
+      </view>
+      <view class='item'>
+        <view class='fLeft' bindtap='skip' data-url='../address/address'>
+          <text class='icon iconfont icon-dizhi'></text>
+          <text>配送地址</text>
+        </view>
+        <text class='iconfont icon-enter'></text>
+      </view>
+      <view class='item'>
+        <view class='fLeft' bindtap='skip' data-url='../../member/helpCenter/helpCenter'>
+          <text class='icon iconfont icon-bangzhu'></text>
+          <text>帮助中心</text>
+        </view>
+        <text class='iconfont icon-enter'></text>        
+      </view>
+      <view class='item'>
+        <view class='fLeft' bindtap='skip' data-url='../../mine/myExtend/myExtend'>
+          <text class='icon iconfont icon-tuiguang'></text>
+          <text>我的推广</text>
+        </view>
+        <text class='moreIcon iconfont icon-enter'></text>
+      </view>
+      <!-- <view>
+        <view class='fLeft'>
+          <image src='../../../images/bindMobile.png'></image>
+          <text>手机绑定</text>
+        </view>
+        <image class='moreIcon' src='../../../images/more.png'></image>
+      </view>
+      <view>
+        <view class='fLeft'>
+          <image src='../../../images/bindEmail.png' class='email'></image>
+          <text>邮箱绑定</text>
+        </view>
+        <image class='moreIcon' src='../../../images/more.png'></image>
+      </view> -->
+    </view>
+
+

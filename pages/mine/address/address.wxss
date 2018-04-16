@@ -1,0 +1,239 @@
+/* pages/mine/address/address.wxss */
+page{
+  background-color: #f4f4f4;
+}
+.top{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 176rpx;
+  background: linear-gradient(to right, #fa5181, #ff2b49);
+}
+.bottom{
+  position: relative;
+  left: 4%;
+  width: 92%;
+  height: 72rpx;
+  background: linear-gradient(to right, #fa5181, #ff2b49);
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 4rpx;
+  line-height: 72rpx;
+  margin-top: 50rpx;
+}
+.addressList{
+  position: relative;
+  top:40rpx;
+  width: 92%;
+  margin: 0 auto;
+}
+.list{
+  height: 250rpx;
+  background-color: #fff;
+  border:solid 1rpx #eadcdc;
+  border-radius: 5rpx;
+  margin-top:30rpx; 
+}
+.list .address{
+  position: absolute;
+  width: 86%;
+  height: 186rpx;
+  padding: 34rpx 20rpx;
+}
+.address .info{
+  height: 120rpx;
+}
+.info .top1{
+  width: 100%;
+  height: 30rpx;
+}
+.info .top1 .name{
+  float: left;
+  height: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 30rpx;
+}
+.info .top1 .phone{
+  float: left;
+  height: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  margin-left: 68rpx;
+}
+.info .addr{
+  color:#666;
+  font-size: 24rpx;
+  margin-top: 30rpx;
+}
+.operation{
+  width: 100%;
+  height: 36rpx;
+  margin-top: 30rpx;
+}
+.operation .checked{
+  float: left;
+  color: #333;
+  font-size: 24rpx;
+}
+.checked icon{
+  margin-bottom: 4rpx;
+}
+.checked text{
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-left: 6rpx;
+}
+.operation .edit{
+  width: 88rpx;
+  height: 34rpx;
+  float: right;
+  color: #818181;
+  font-size: 24rpx;
+  margin-right: 42rpx; 
+}
+.operation .edit .icon-bianji{
+  width: 34rpx;
+  height: 34rpx;
+  font-size: 30rpx;
+  margin-right: 6rpx;
+  line-height: 40rpx;
+} 
+.operation .edit text{
+  height: 34rpx;
+  line-height: 34rpx;
+}
+.operation .del{
+  float: right;
+  color: #818181;
+  font-size: 24rpx;
+}
+.operation .del .icon-shanchu{
+  width: 34rpx;
+  height: 34rpx;
+  font-size: 30rpx;
+  margin-right: 6rpx;
+  line-height: 40rpx;
+} 
+.operation .del text{
+  height: 34rpx;
+ line-height: 34rpx;
+}
+.null{
+  width: 100%;
+  height: 160rpx;
+}
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;    
+  width: 100%;
+  height: 100%;
+  background-color: rgba(60,60,60, 0.8);
+}
+.add{
+  position: fixed;
+  left: 4%;
+  top:190rpx;
+  width: 92%;
+  height: 730rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
+  z-index: 999;
+}
+.title{
+  width: 92%;
+  height: 78rpx;
+  margin: 0rpx auto;
+  position: relative;
+}
+.title .btn{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.title .subTitle{
+  float: left; 
+  height: 30rpx;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  margin-left: 200rpx;
+  margin-top: 24rpx;
+}
+.content{
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 410rpx;
+  padding: 0 20rpx;
+  font-size: 25rpx;
+}
+.accept_name,.mobile,.location,.addrs{
+  height: 64rpx;
+   margin-top: 20rpx;
+}
+.content text{
+  float:left;
+  width: 130rpx;
+  height: 62rpx;
+  text-align: right;
+  line-height: 62rpx;
+}
+input{
+  width: 454rpx;    
+  height: 62rpx;
+  padding-left: 36rpx;
+  float: left;
+  border: solid #e6e6e6 1rpx;
+}
+
+.location view{
+  width: 454rpx;    
+  height: 62rpx;
+  padding-left: 36rpx;
+  float: left;
+  line-height: 62rpx;
+  border: solid #e6e6e6 1rpx;
+}
+.submit{
+  width: 600rpx;
+  height: 70rpx;
+  margin: 0 auto;
+}
+.submit button{
+  background: linear-gradient(to right, #fa5181, #ff2b49);
+  color:#fff;
+}
+.picker-view {
+  width: 100%;
+  display: flex;
+  z-index:12;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 40vh;
+}
+
+.picker-item {
+  line-height: 70rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+/* 取消按钮 */
+.btn-error {
+  font-size: 26rpx;
+  padding: 10px;
+}

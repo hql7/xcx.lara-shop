@@ -1,0 +1,233 @@
+/* pages/order/my-order.wxss */
+
+Page {
+  background-color: rgb(244,244,244);
+}
+.page{
+  width: 100%;
+  height: 100%;
+  padding: 0 4%;
+  background-color: rgb(244,244,244);
+}
+.data-v-top {
+    width: 100%;
+    height: 250rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+     z-index: -1; 
+    background: -webkit-gradient(linear, left top, right top, from(#ff2764), to(#f82546));
+    background: linear-gradient(to right, #ff2764, #f82546);
+}
+.orderBig{
+    position: absolute; 
+    top:95rpx; 
+    
+}
+.my-order{
+    height: 375rpx;
+    width: 95%;
+    margin-top: 30rpx;
+    background-color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 2px rgba(165, 33, 33, .2);
+    box-shadow: 2px 2px 2px rgba(165, 33, 33, .2);
+}
+.order-title{
+  padding: 0 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  height: 60rpx;
+  align-items:center;
+  font-size: 21rpx;
+}
+.order-title-status{
+    float: right;
+    color: #ff5858;
+    font-weight: normal;
+}
+.order-title-no{
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    color:rgb(85,85,85);
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+.order-content{
+  padding: 0 15rpx;
+  background-color: rgb(248,248,248);
+   display: flex;
+  flex-direction: row;
+  justify-content: space-around; 
+   align-items: center;
+  height: 145rpx;
+}
+.order-content image{
+  width: 125rpx; 
+  height: 125rpx;
+  margin-right: 10rpx; 
+  background-color: #eeeeee;
+}
+ .order-contents{
+  height: 145rpx;
+  background-color: rgb(248,248,248);  
+}
+.order-contents scroll-view{
+  width: 680rpx;
+  white-space: nowrap;
+}  
+.order-contents image{
+  width: 125rpx; 
+  height: 125rpx;
+  margin-left: 10rpx; 
+  margin-top: 10rpx;
+  background-color: #eeeeee;
+} 
+.order-content text{
+  font-size: 22rpx;
+}
+.order-content-info{
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center; 
+  margin-left: 10rpx;
+  width: 560rpx;
+  height: 145rpx;
+}
+.order-content-info text{
+  height:80rpx;
+  line-height: 45rpx;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+}
+.order-content-info .order-content-money{
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+.order-content-info .order-content-money text{
+  text-decoration:line-through;  
+  margin-left:15rpx; 
+  color:#ccc;
+}
+.order-num-price{
+  height: 60rpx;
+  width: 100%;
+  line-height: 60rpx;
+  border-bottom:1px solid #eee;   
+}
+.order-price{
+  padding: 0 15rpx;
+  font-size: 24rpx;
+  float:right;
+}
+.order-status-pay{
+  margin-right:15rpx;
+  margin-top:30rpx; 
+  float: right;
+  height: 45rpx;
+  width: 115rpx;
+  font-size: 22rpx;
+  background-color: rgb(254,39,97);
+  text-align: center;
+  line-height: 45rpx;
+  color:#fff;
+  border-radius: 5rpx; 
+}
+.order-status-after-sale{
+  margin-right:15rpx;
+  margin-top:30rpx; 
+  float: right;
+  height: 45rpx;
+  width: 115rpx;
+  border:1px solid #ccc;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 45rpx;
+  border-radius: 5rpx; 
+}
+.order-status-harvest{
+  margin-right:15rpx;
+  margin-top:30rpx; 
+  float: right;
+  height: 45rpx;
+  width: 115rpx;
+  color: rgb(250,38,78);
+  border:1px solid rgb(250,38,78);
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 45rpx;
+  border-radius: 5rpx; 
+}
+.noOrder{
+  height:600rpx;
+  width: 690rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.noOrder-left{
+  height:10rpx;
+  width:150rpx;
+  border-bottom:1rpx solid #ccc;
+}
+.noOrder-center{
+  font-size:40rpx;
+  color:#ccc;
+}
+/* 覆盖层  */
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;    
+  width: 100%;
+  height: 100%;
+  background-color: #49494e;
+}
+.cover .prompt{
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  margin-left: -315rpx;
+  width: 630rpx;
+  height: 260rpx;
+  border-radius: 4rpx;
+  background-color: #fff;
+  z-index: 10;
+}
+.prompt .subTitle{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  height: 62rpx;
+  line-height: 62rpx;
+  padding: 0 32rpx;
+  background-color: #f3f1f1;
+  font-size: 30rpx;
+}
+.prompt .btn{
+  position: absolute;
+  top: 18rpx;
+  right: 32rpx;
+  width: 24rpx;
+  height: 24rpx;
+  color: #9b9b9b;
+}
+.prompt .content{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 198rpx;
+  font-size: 25rpx;
+  color: #333333;
+}
+.specialCol{
+  color: #f51322;
+}

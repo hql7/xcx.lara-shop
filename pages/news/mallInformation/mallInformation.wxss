@@ -1,0 +1,28 @@
+/* pages/information/mallInformation/mallInformation.wxss */
+.mallInformation view{
+   display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  width: 86%;
+  margin: 0 auto;   
+}
+.topic{
+  height: 130rpx;
+}
+.topic .title{
+  margin-top: 30rpx; 
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+}
+.topic .time{
+  font-size: 16rpx;
+  color: #a5a5a5;
+}
+
+.article{
+  padding-top: 10rpx;
+  font-size: 20rpx;
+  color: #333333;
+  line-height: 32rpx;
+}

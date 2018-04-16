@@ -1,0 +1,37 @@
+<!--pages/mine/myExtend/myExtend.wxml-->
+<view class='myExtend'>
+  <!-- 活动  -->
+  <view class='active'>
+    <view class='title'>
+      <text>参加活动</text>
+      <text class='important'>免费获取积分</text>
+    </view>
+    <view class='despriction'>
+      <text>复制下方链接分享到QQ空间、微信、微博、贴吧、好友，通过链接每注册成功一人便可获取10积分，没有上限，当天邀请超过（包括）10人直接获得大礼包一份。</text>
+    </view>
+  </view>
+
+  <!-- 链接 -->
+  <view class='wrapper link'>{{link}}</view>
+
+  <view class='copy' bindtap='copyLink'>立即复制</view>
+
+  <view class='qrCode'>
+    <image src='http://192.168.31.212/Laravel-Shop/trunk/public/api/web/get_qrcode'></image>
+    <text>我的推广二维码</text>
+  </view>
+
+  <view class='wrapper step'>
+    <text>攻略一：分享的时候可以分享到QQ聊天群或QQ好友</text>
+    <view class='pic'>
+      <image src='../../../images/chat01.png'></image>
+      <image src='../../../images/chat02.png'></image>
+    </view>
+  </view>
+  <view class='wrapper step second'>
+    <text>攻略二：分享到QQ空间、新浪微博、腾讯微博、贴吧、论坛</text>
+    <view class='pic'>
+      <image src='../../../images/chat03.png'></image>
+    </view>
+  </view>
+</view>

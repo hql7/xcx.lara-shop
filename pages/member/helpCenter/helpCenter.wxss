@@ -1,0 +1,24 @@
+/* pages/member/helpCenter/helpCenter.wxss */
+page{
+  background-color: #f1f2f6;
+}
+.helpCenter view{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  background-color: #fff;
+  margin-top: 16rpx;
+  border-bottom: 1rpx solid #f3f2f2;
+}
+.helpCenter view text{
+  font-size: 28rpx;
+  margin-left: 25rpx;
+  color: #333333;
+  line-height: 80rpx;
+}
+.helpCenter view image{
+  margin-right: 25rpx;
+  width: 9rpx;
+  height: 17rpx;
+}

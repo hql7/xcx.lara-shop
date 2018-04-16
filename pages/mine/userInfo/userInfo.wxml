@@ -1,0 +1,29 @@
+<!--pages/mine/userInfo/userInfo.wxml-->
+<view class='info'>
+  <view class='head'>
+    <text>头像</text>
+    <image src="{{userInfo.head_pic}}"></image>
+  </view>
+  <view class='vip'>
+    <text class='left'>会员等级</text>
+    <text class='right'>{{userInfo.vip}}</text>
+  </view>
+  <view class='name'>
+    <text class='left'>昵称</text>
+    <text class='right'>{{userInfo.nickname}}</text>
+  </view>
+  <view class='nickname'>
+    <text class='left'>用户名</text>
+    <text class='right'>{{userInfo.name}}</text>
+  </view>
+  <view class='sex'>
+    <text class='left'>性别</text>
+    <text class='right' wx:if="{{userInfo.sex == 0}}">女</text>
+    <text class='right' wx:if="{{userInfo.sex == 1}}">男</text>
+    <text class='right' wx:if="{{userInfo.sex == 2}}">保密</text>
+  </view>
+  <view class='birthday'>
+    <text class='left'>生日</text>
+    <text class='right'>{{userInfo.birthday}}</text>
+  </view>
+</view>

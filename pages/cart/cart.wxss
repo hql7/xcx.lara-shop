@@ -1,0 +1,174 @@
+/* pages/cart/cart.wxss */
+page {
+    background-color: #f1f2f7;
+}
+
+.iconfont{
+  position: fixed;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 70rpx;
+  background-color: #fff;
+  border-top: solid #e5e5e5 1px;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  text-align: center;
+  z-index: 100;
+  color:#666;
+}
+
+.list{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  height: 219rpx;
+  border-bottom: 1px solid #e4e4e4;
+  background-color: #fff;
+  margin-top: 20rpx;
+  position: relative;
+  z-index: 10;
+}
+.list .goods{
+  position: relative;
+  width:100%;
+  background: #fff;
+  z-index: 10;
+  height: 150rpx;
+}
+.goods .checkbox{
+  float: left;
+  margin-top: 40rpx;
+  margin-left: 32rpx;
+}
+.goods .cartIcon{
+  position: absolute;
+  right: 30rpx;
+  bottom: 0;
+  width: 131rpx;
+  height: 34rpx;
+  border: 1px solid #cecece;
+  border-radius: 6rpx;
+}
+.goods .cartIcon .jian{
+  float: left;
+  width: 43rpx;
+  height: 34rpx;
+  border-right: 1px solid #cecece;
+  line-height: 30rpx;
+  text-align: center;
+}
+.goods .cartIcon .num{
+  float: left;
+  width: 43rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.goods .cartIcon .not{
+  /* background-color: #cecece; */
+  color: #cecece;
+}
+.goods .cartIcon .jia{
+  float: left;
+  width: 43rpx;
+  height: 34rpx;
+  border-left: 1px solid #cecece;
+  line-height: 30rpx;
+  text-align: center;
+}
+.goods .pic{
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 20rpx;
+}
+.goods .gDetail{
+  float: right;
+  width: 480rpx; 
+  height: 150rpx;
+}
+.gDetail .gName{
+  height: 60rpx;
+  font-size: 32rpx;
+  color: #333333;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+   overflow: hidden;     
+}
+ .gDetail .gSpec{
+  height: 34rpx;
+  color: #8e8f94; 
+  line-height: 34rpx;
+} 
+.gDetail .gSpec .spec{
+  font-size: 24rpx;
+}
+.gDetail .gSpec .freight{
+  font-size: 18rpx;
+  margin-left: 20rpx;
+}
+.gDetail .gPrice{
+  font-size: 24rpx;
+  color: #f51322;
+}
+.balance{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 88rpx;
+  border-bottom: 1px solid #e8e8e8;
+  background-color: #fff;
+  z-index: 100;
+}
+.balance .checkbox{
+  float: left;
+  margin-left: 32rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.balance .checkbox icon{
+  width: 28rpx;
+  height: 28rpx;
+  margin-bottom: 24rpx;
+} 
+.balance .checkbox text{
+  font-size: 26rpx;
+  color: #606060;
+  margin-left: 14rpx;
+}
+.balance .price{
+  float: left;
+  margin-left: 160rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.price .num .font{
+  font-size: 26rpx;
+  color: #333;
+}
+.price .num .priceNum{
+  font-size: 26rpx;
+  color: #f32e37;
+}
+.balance button{
+  float: right;
+  width: 220rpx;
+  height: 88rpx;
+  background-color: #f51231;
+  border-radius: 4rpx;
+  font-size: 34rpx;
+  color: #fff;
+}
+.inner.del{
+    position: absolute;
+    background-color: #e64340;  
+    width: 100rpx;height: 150rpx;line-height: 150rpx;
+    text-align: center;    
+    color: #fff;
+    right:22rpx;  
+    z-index: 4; 
+    font-size: 24rpx;
+}

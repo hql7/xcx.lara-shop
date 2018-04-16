@@ -1,0 +1,77 @@
+<!--pages/order/afterGoods/afterGoods.wxml-->
+<view class="swiperTab">  
+  <view class="swiperTablist {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">申请退换货</view>  
+  <view class="swiperTablist {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">退换货记录</view>  
+  <view class="swiperTablist {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">退款记录</view>  
+</view> 
+<swiper current="{{currentTab}}" style='height:{{winHeight-43}}px' class="swiperBox" duration="300" bindchange="bindChange"> 
+  <swiper-item>  
+    <scroll-view scroll-y="true">
+       <view class='afterGoods' wx:for="{{afterGoods}}">
+          <view class='orderInfo'>
+            <text class='left'>订单编号：{{item.order_no}}</text>
+            <text class='right'>下单时间：{{item.create_time}}</text>
+          </view>
+          <view class='goods' wx:for="{{item.order_goods}}" wx:for-item="itemName" wx:for-index="idx">
+            <view class='left'>
+              <image src='{{itemName.good_img}}'></image>
+            </view>
+            <view class='right'>
+              <text class='goodsName'>{{itemName.good_name}}</text>
+              <text class='num'>数量：{{itemName.good_num}}</text>
+              <text class='after' bindtap='afterSale' data-id="{{itemName.og_id}}" wx:if="{{itemName.can_apply == 0}}">申请售后</text>    
+            </view>
+          </view>
+       </view> 
+     </scroll-view> 
+  </swiper-item>  
+
+  <swiper-item>  
+    <scroll-view scroll-y="true">
+       <view class='afterList' wx:for="{{afterList}}">
+          <view class='orderInfo'>
+            <text class='left'>订单编号：{{item.order_no}}</text>
+            <text class='right'>申请时间：{{item.apply_time}}</text>
+          </view>
+          <view class='goods'>
+            <view class='left'>
+              <image src='{{item.good_img}}'></image>
+            </view>
+            <view class='right'>
+              <text class='listName'>{{item.good_name}}</text>
+              <text class='num'>数量：{{item.apply_num}}</text>
+              <text class='after' bindtap='bindShow' data-return_id="{{item.return_id}}">查看</text>
+              <text class='status' wx:if="{{item.status == 0}}">待审核</text>
+              <text class='status' wx:if="{{item.status == 1}}">审核通过</text>
+              <text class='status' wx:if="{{item.status == 2}}">审核失败</text>
+              <text class='status' wx:if="{{item.status == 3}}">已发货</text>
+              <text class='status' wx:if="{{item.status == 4}}">已完成</text>
+              <text class='status' wx:if="{{item.status == 5}}">已取消</text>
+              <text class='status' wx:if="{{item.status == 6}}">已收货</text>
+              <text class='status' wx:if="{{item.status == 7}}">已拒签</text>              
+            </view>
+          </view>
+       </view> 
+     </scroll-view> 
+  </swiper-item> 
+
+  <swiper-item>  
+    <scroll-view scroll-y="true">
+       <view class='refundList' wx:for="{{refundList}}">
+          <view class='orderInfo'>
+            <text class='left'>订单编号：{{item.order_no}}</text>
+            <text class='right'>申请时间：{{item.apply_time}}</text>
+          </view>
+          <view class='refund'>
+            <text class='amount'>退款金额：￥{{item.amount}}</text>
+            <text class='channel'>退款方式：{{item.channel}}</text>
+            <text class='time'>处理时间：{{item.handling_time}}</text>
+            <text class='status' wx:if="{{item.status == 0}}">待审核</text>
+            <text class='status' wx:if="{{item.status == 1}}">审核失败</text>
+            <text class='status' wx:if="{{item.status == 2}}">退款成功</text>
+          </view>
+       </view> 
+     </scroll-view> 
+  </swiper-item>  
+</swiper>
+

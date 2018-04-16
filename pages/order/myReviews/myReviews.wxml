@@ -1,0 +1,131 @@
+<!--pages/order/myReviews/myReviews.wxml-->
+<view class="swiperTab">
+  <view class="swiperTablist {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">待评价</view>
+  <view class="swiperTablist {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已评价</view>
+</view>
+<swiper current="{{currentTab}}" style='height:{{winHeight-43}}px' class="swiperBox" duration="300" bindchange="bindChange">
+  <!-- 待评价 -->
+  <swiper-item>
+    <scroll-view scroll-y="true">
+      <view class='order' wx:for="{{reviewsList}}">
+        <view class='order-top'>
+          <text>订单编号： {{item.order_no}}</text><text>下单时间： {{item.create_time}}</text>
+        </view>
+        <view class='order-content' wx:for="{{item.order_goods}}" wx:for-item="itemGoods">
+          <view class='order-img'>
+          <image src='{{itemGoods.img}}' style='background:#ccc;width:125rpx;height:125rpx;'></image>
+          </view>
+          <view class="order-detail">
+            <text>{{itemGoods.name}}</text>
+            <view class='order-price'>
+            ￥{{item.order_amount}}
+            </view>
+            <view class='order-right-bottom'>
+              <view class='order-num'>数量： {{itemGoods.goods_nums}}</view>
+              <view class='order-bottom-right'>
+                <view class='order-detail-btn' bindtap='orderDetail' data-id="{{item.order_id}}">订单详情</view>          
+                <view class='order-commit' bindtap='publicReview' data-id="{{item.order_id}}">去评价</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+ <!-- 已评价 -->
+  <swiper-item>
+    <scroll-view scroll-y="true">
+      <view class='order' wx:for="{{commentiList}}">
+        <view class='order-top'>
+          <text>订单编号： {{item.order_no}}</text><text>下单时间： {{item.create_time}}</text>
+        </view>
+        <view class='order-content' wx:for="{{item.order_goods}}" wx:for-item="itemGoods">
+          <view class='order-img'>
+          <image src='{{itemGoods.img}}' style='background:#ccc;width:125rpx;height:125rpx;'></image>
+          </view>
+          <view class="order-detail">
+            <text>{{itemGoods.name}}</text>
+            <view class='order-price'>
+            ￥{{item.order_amount}}
+            </view>
+            <view class='order-right-bottom'>
+              <view class='order-num'>数量： {{itemGoods.goods_nums}}</view>
+              <view class='order-bottom-right'>
+                <view class='order-detail-btn' bindtap='orderDetail' data-id="{{item.order_id}}">订单详情</view>          
+                <view class='order-reviews'>已评价</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+<!-- <view class='nav'>
+  <view class="{{active}}" data-type='1' bindtap='commit'>
+    待评价
+  </view>
+  <view class="{{reviews}}" data-type='2' bindtap='reviews'>
+    已评价
+  </view>
+</view>
+<view class='go-reviews {{block}}'>
+ <view class='order' wx:for="{{list}}">
+  <view class='order-top'>
+    <text>订单编号： {{item.order_no}}</text><text>下单时间： {{item.create_time}}</text>
+  </view>
+  <view class='order-content' wx:for="{{item.order_goods}}" wx:for-item="itemGoods">
+    <view class='order-img'>
+    <image src='{{itemGoods.img}}' style='background:#ccc;width:125rpx;height:125rpx;'></image>
+    </view>
+    <view class="order-detail">
+      <text>{{itemGoods.name}}</text>
+      <view class='order-price'>
+      ￥{{item.order_amount}}
+      </view>
+      <view class='order-right-bottom'>
+        <view class='order-num'>数量： {{itemGoods.goods_nums}}</view>
+        <view class='order-bottom-right'>
+          <view class='order-detail-btn' bindtap='orderDetail' data-id="{{item.order_id}}">订单详情</view>          
+          <view class='order-commit' bindtap='publicReview' data-id="{{item.order_id}}">去评价</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+</view>
+
+<view class='complete-reviews {{none}}'>
+  <view class='order' wx:for="{{list}}">
+  <view class='order-top'>
+    <text>订单编号：  {{item.order_no}}</text><text>下单时间： {{item.create_time}}</text>
+  </view>
+  <view class='order-content' wx:for="{{item.order_goods}}" wx:for-item="itemGoods">
+    <view class='order-img'>
+    <image src='{{itemGoods.img}}' style='background:#ccc;width:125rpx;height:125rpx;'></image>
+    </view>
+    <view class="order-detail">
+      <text>{{itemGoods.name}}</text>
+      <view class='order-price'>
+      ￥{{item.order_amount}}
+      </view>
+      <view class='order-right-bottom'>
+        <view class='order-num'>
+        数量： {{itemGoods.goods_nums}}
+        </view>
+        <view class='order-bottom-right'>
+          <view class='order-detail-btn' bindtap='orderDetail' data-id="{{item.order_id}}">
+          订单详情
+          </view>
+          <view class='order-reviews'>
+          已评价
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+</view> -->

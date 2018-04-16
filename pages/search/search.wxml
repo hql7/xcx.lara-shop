@@ -1,0 +1,10 @@
+<!--pages/search/search.wxml-->
+<import src="/wxSearch/wxSearch.wxml"/>
+<view class="wxSearch-section">
+  <view class="wxSearch-pancel">
+    <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="搜索" bindinput="bindInput"/>
+    <button class="wxSearch-button" bindtap="setSearchStorage" size="mini" plain="true">搜索</button>
+  </view>
+</view>
+<template is="wxSearch" data="{{wxSearchData}}"/>
+

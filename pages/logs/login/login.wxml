@@ -1,0 +1,20 @@
+<!--pages/logs/login/login.wxml-->
+<view class='top'>
+  <view class='img'>
+    <image src='../../../images/ad(1).png'></image>
+  </view>
+</view>
+ <view class='content'>
+  <form bindsubmit="formSubmit">
+    <view class='username'>
+      <text>用户名</text>
+      <input name='username' placeholder='用户名/绑定手机/绑定邮箱' placeholder-class="phcolor" value=''></input>
+    </view>
+    <view class='psd'>
+      <text>密码</text>
+      <input name='userpass' placeholder='登录密码' placeholder-class="phcolor" password='true' value=''></input>
+    </view>
+    <button class='submit' form-type="submit" >登录并绑定</button>
+  </form>
+</view> 
+<text class='register' bindtap='register'>免费注册</text>

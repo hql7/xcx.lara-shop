@@ -1,0 +1,125 @@
+/* pages/mine/myPoints/myPoints.wxss */
+.top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 176rpx;
+  background: linear-gradient(to right, #ff8b03, #ff5500);
+  color: #fff;
+  font-size: 26rpx;
+}
+.curPoint{
+  height: 48rpx;
+  line-height: 48rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+.curPoint text{
+  height: 50rpx;
+}
+.curPoint .count{
+  font-size: 50rpx;
+  margin: 0rpx 14rpx;
+}
+
+.box{
+  height: 12rpx;
+  background-color: #f0f0f0;
+}
+.active{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 148rpx;
+}
+.active view{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  width: 314rpx;
+  height: 104rpx;
+   text-align: center; 
+  border-radius: 4rpx;
+}
+.active view text{
+  display: block;
+}
+.points{
+  background-color: #fee7f7;
+}
+.changeBuy{
+  background-color: #fdf4cc;
+  margin-left: 40rpx;
+  margin-top: 14rpx;
+}
+
+.active view .aTopic{
+  font-size: 25rpx;
+}
+.active view .aDespriction{
+  font-size: 20rpx;
+}
+
+.points .aTopic{
+  color: #312b2d;
+}
+.points .aDespriction{
+  color: #82727f;
+}
+.changeBuy .aTopic{
+  color: #39341e;
+}
+.changeBuy .aDespriction{
+  color: #6d6759;
+}
+.pDetail>view{
+  padding: 0 20rpx;  
+  height: 84rpx;
+}
+.pDetail .title{
+  font-size: 30rpx;
+  color: #333333;
+  line-height: 84rpx;
+}
+.pDetail .list{
+  border-top: 1rpx solid #eeeeee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+}
+.pDetail .tips .noMore{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  justify-content: center;  
+  padding-top: 50rpx;
+  font-size: 24rpx;
+  color: #333333;
+}
+.list .pDespriction{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+.list .orderNo{
+  font-size: 20rpx;
+  color: #333;
+}
+.list .pDes{
+  font-size: 20rpx;
+  color: #999;
+}
+.list .pointLog{
+  font-size: 20rpx;
+  color: #666;
+}
+.list .pointLog text{
+  margin-left: 30rpx;
+}
+.list .time{
+   margin-top: 6rpx; 
+  font-size: 18rpx;
+  color: #666;
+}

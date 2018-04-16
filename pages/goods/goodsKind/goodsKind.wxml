@@ -1,0 +1,55 @@
+<!--pages/goods/goodsList/goodsList.wxml-->
+<import src="../../../common/component/commonHeader/commonHeader.wxml"/>
+<!-- 头部  -->
+<view class='cHeader'>
+  <view class='search'>
+    <icon type='search' size="14" color="#f51322"></icon>
+    <input placeholder='搜索' placeholder-class='plcol' class='searchInp' bindfocus='skip' data-url='../../search/search'></input>
+  </view>
+  <view class='left' bindtap="tap1">
+    <text class='iconfont icon-saoma' style="display:inline-block;"></text>
+  </view>
+  <view class='right' bindtap='skip' data-url='../../news/mallInformation/mallInformation'>
+    <text class='iconfont icon-xiaoxi'></text>
+    <text class='message'>消息</text>
+  </view>
+</view>
+
+<!-- 主要内容  -->
+<view class='container'>
+  <scroll-view scroll-y="true" class='leftScroll fl' style='height:{{sHeight-66}}px'>
+    <view bindtap='cut' wx:for="{{category}}" class="{{item.checked}}"  data-id="{{item.cate_id}}">
+      <text>{{item.floor_name}}</text>
+    </view>
+  </scroll-view>
+  <view class='right fr'>
+    <!-- 商品轮播  -->
+    <view class='banner'>
+      <swiper class="swiper" indicator-dots="true" indicator-color="#fdfdfd" indicator-active-color="#333d48" autoplay="true" interval="2000" duration="1000">    
+      <block>
+        <swiper-item >    
+          <image src="{{category_img}}" class="slide-image" mode="aspectFill"/>
+        </swiper-item>   
+      </block>    
+    </swiper>
+    </view>
+    <!-- 商品展示详情  -->
+    <view class='detail'>
+      <view class='topic'>
+        <text>热门推荐</text>
+      </view>
+      <scroll-view scroll-y="true" class='rightScroll' style='height:{{sHeight-220}}px'>
+        <view class='goodsList'>
+          <view class="goods" wx:for="{{childs}}" data-id="{{item.id}}" bindtap='goodsList'>
+              <view class='gImg'>
+                <image src="{{item.img}}"></image>
+              </view>
+              <view class='gDespriction'>
+                <text class='gName'>{{item.name}}</text>
+              </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

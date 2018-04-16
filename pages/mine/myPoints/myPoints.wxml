@@ -1,0 +1,43 @@
+<!--pages/mine/myPoints/myPoints.wxml-->
+<view class='myPoints'>
+  <view class='top'>
+    <view class='curPoint'>
+      <text>当前</text><text class='count'>{{userInfo.point}}</text><text>积分</text>
+    </view>
+  </view>
+
+  <view class='box'></view>
+
+  <view class='active'>
+    <view class='points'>
+      <text class='aTopic'>购物送积分</text>
+      <text class='aDespriction'>购物多送的积分越多</text>
+    </view>
+    <view class='changeBuy'>
+      <text class='aTopic'>积分换值购</text>
+      <text class='aDespriction'>小积分换打折扣</text>
+    </view>
+  </view>
+
+  <view class='pDetail'>
+    <view class='title'>
+      <text>积分明细</text>
+    </view>
+    <scroll-view scroll-y="true" style='height:{{height-200}}px' bindscrolltolower="loadMore" lower-threshold='10rpx'>
+      <view class='list' wx:for="{{pointLog}}">
+        <view class='pDespriction'>
+          <text class='orderNo'>订单编号：{{item.order_no}}</text>
+          <text class='pDes'>备注：{{item.intro}}</text>
+          <text class='pointLog'>余额：{{item.point_log}}<text></text>{{item.point}}</text>
+          <text class='time'>{{item.time}}</text>
+        </view>
+      </view>
+      <view class="tips">
+        <view wx:if="{{hasMore}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
+          <icon type="waiting" size="25"/><text>玩命的加载中...</text>
+        </view>
+        <view class='noMore' wx:else><text>没有更多内容了~</text></view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

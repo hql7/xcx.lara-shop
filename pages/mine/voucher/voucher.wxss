@@ -1,0 +1,155 @@
+/* pages/mine/voucher/voucher.wxss */
+page{
+  background-color: #f5f4f9;
+}
+.top{
+  width: 100%;
+  height: 60rpx;
+  background-color:#fff;
+  margin-top: 2rpx;
+}
+.top text{
+  color:#333;
+  height: 60rpx;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  margin: 0 76rpx;
+}
+.top .checked{
+  color: f51322;
+  border-bottom: solid #f51322 1rpx;
+}
+.voucher{
+  position: relative;
+  width: 92%;
+  height: 160rpx;
+  background-color:#fff;
+  margin-left:4%;
+  margin-top: 30rpx;
+}
+.voucher .left{
+  float: left;
+  width: 30%;
+  height: 160rpx;
+  background: linear-gradient(to right, #46ccc4, #46cfb2);
+  color: #fff;
+}
+.left .number {
+  height: 50rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.left .number .symbol{
+  font-size: 20rpx;
+}
+.left .number .num{
+  font-size: 48rpx;
+  line-height: 50rpx;
+}
+.left .condition{
+  height: 22rpx;
+  font-size: 22rpx;
+  text-align: center;
+  margin-top: 30rpx;
+  line-height: 22rpx;
+}
+.voucher .leftBorder{
+  position: absolute;
+  width: 6rpx;
+  height: 160rpx;
+  background-color: #46cfb2;
+  margin-left: 30%;
+}
+.leftBorder text{
+  float: left;
+  width: 8rpx;
+  height: 8rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-top: 4rpx;
+}
+.voucher .right{
+  position: absolute;
+  width: 56%;
+  height: 100rpx;
+  margin-left: 34%;
+  padding: 30rpx 0;
+}
+.right .content{
+  width: 100%;
+  height: 100rpx;
+}
+.content .text{
+  height: 64rpx;
+  color: #333;
+  font-size: 22rpx;
+}
+.content .time{
+  float: left;
+  bottom: 0rpx;
+  width: 60%;
+  color: #ababab;
+  font-size: 12rpx;
+  margin-top: 20rpx;
+}
+.content .button{
+  float: right;
+  width: 110rpx;
+  height: 30rpx;
+  font-size: 20rpx;
+  border: solid #46cce4 1rpx;
+  text-align: center;
+  line-height: 30rpx;
+  color:#46cce4; 
+  border-radius: 16rpx;
+}
+.new{
+  position: absolute;
+  right: 0;
+  border-top:40rpx solid #ffea00;
+  border-left:40rpx solid transparent;
+  border-right:40rpx solid #ffea00;
+  border-bottom: 40rpx solid transparent;
+}
+.small{
+  position: absolute;
+  right: 0;
+  border-top:18rpx solid #fff;
+  border-left:18rpx solid transparent;
+  border-right:18rpx solid #fff;
+  border-bottom: 18rpx solid transparent;
+}
+ .title{
+  position: absolute;
+  top:14rpx;
+  right: 7rpx;
+  color: #f63020;
+  font-size: 20rpx;
+  transform: rotate(45deg);
+} 
+.over{
+  float: right;
+  width: 110rpx;
+  height: 30rpx;
+  font-size: 20rpx;
+  border: solid #eeeeee 1rpx;
+  text-align: center;
+  line-height: 30rpx;
+  background: #f6f6f6;
+  color:#c1c1c1; 
+  border-radius: 16rpx;
+}
+
+/* 去领券中心 */
+.goCenter{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #f51322;
+  font-size: 34rpx;
+  background-color: #fff;
+}

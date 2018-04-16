@@ -1,0 +1,96 @@
+<!--pages/order/afterPage/afterPage.wxml-->
+<form bindsubmit='formSubmit'>
+  <view class='goods'>
+    <view class='left'>
+      <image src='{{goodDetail.goods_info.img}}'></image>
+    </view>
+    <view class='right'>
+      <text class='name'>{{goodDetail.goods_info.name}}</text>
+      <text class='num'>数量：{{goodDetail.goods_info.goods_nums}}</text>
+      <text class='price'>￥{{goodDetail.goods_info.price}}</text>
+    </view>
+  </view>
+
+  <view class='goodsInfo'>
+    <view class='serverType'>
+      <view class='stitle'>服务类型 :</view>
+      <view class='server'>
+        <view class='{{refundType == 0 ? typeClass : ""}}' bindtap='bindRefund' data-type="0">退货退款</view>
+        <view class='{{refundType == 1 ? typeClass : ""}}' bindtap='bindRefund' data-type="1">换货</view>
+        <view class='{{refundType == 2 ? typeClass : ""}}' bindtap='bindRefund' data-type="2">维修</view>
+      </view>
+    </view>
+    <view class='num'>
+      <text class='title'>数量：</text>
+      <input name='num' value='{{goodDetail.goods_info.goods_nums}}'></input>
+      <text class='afternum'>您的商品申请数量最多为{{goodDetail.goods_info.after_nums}}</text>
+    </view>
+    <view class='serverType'>
+      <view class='stitle'>退款方式：</view>
+      <view class='refund'>
+        <view class='{{refundStyle == 0 ? styleClass : ""}} refundStyle' bindtap='refundStyle' data-refund_type="0">退回至账户余额</view>
+        <view class='{{refundStyle == 1 ? styleClass : ""}} refundStyle' bindtap='refundStyle' data-refund_type="1">退回至原支付中</view>
+      </view>
+    </view>
+    <view class='serverType'>
+      <view class='stitle'>货物状态：</view>
+      <view class='refund'>
+        <view class='{{refundTake == 0 ? styleClass : ""}} refundStyle' bindtap='refundTake' data-is_take="0">未收到货</view>
+        <view class='{{refundTake == 1 ? styleClass : ""}} refundStyle' bindtap='refundTake' data-is_take="1">已收到货</view>
+      </view>
+    </view>
+    <view class='becase'>
+      <text class='title'>提交原因：</text>
+      <input name="reason"></input>
+    </view>
+    <view class='description'>
+      <text class='title'>问题描述：</text>
+      <textarea placeholder="请您如实填写申请原因及商品情况" name="description" />
+    </view>
+    <view class="page__bd">
+      <view class="weui-uploader">
+        <view class="weui-uploader__hd">
+          <view class="weui-uploader__title">图片上传：</view>
+        </view>
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+            <block wx:for="{{files}}" wx:key="*this">
+              <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='userInfo'>
+    <view class='serverType'>
+      <view class='stitle'>申请凭据：</view>
+      <view class='refund'>
+        <view class='{{refundInvoice == 0 ? styleClass : ""}} refundStyle' bindtap='refundInvoice' data-invoice="0">有发票</view>
+        <view class='{{refundInvoice == 1 ? styleClass : ""}} refundStyle' bindtap='refundInvoice' data-invoice="1">无发票</view>
+      </view>
+    </view>
+    <view>
+      <label>收货地址：</label>
+      <text class='address'>{{goodDetail.user_info.location}}</text>
+    </view>
+    <view>
+      <label>姓名：</label>
+      <input name="accept_name"></input>
+    </view>
+    <view>
+      <label>手机号：</label>
+      <input name="mobile"></input>
+    </view>
+    <view>
+      <label>固话：</label>
+      <input name="phone"></input>
+    </view>
+    <button form-type='submit'>提交申请</button>
+  </view>
+</form>

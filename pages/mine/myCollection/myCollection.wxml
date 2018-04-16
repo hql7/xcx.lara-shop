@@ -1,0 +1,31 @@
+<!--pages/mine/myCollection.wxml-->
+<view class='myCollection'>
+  <view class='nav'>
+    <text>默认</text>
+    <text>降价</text>
+    <text>促销</text>
+  </view>
+  <scroll-view scroll-y="true" style='height:{{height+470}}rpx' bindscrolltolower="loadMore" lower-threshold='10rpx'>
+  <view class='list' wx:for='{{list}}'>
+    <view class='goods' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}">
+      <view class='cartIcon' data-id='{{item.product_id}}' bindtap='addCart'></view>
+      <image class='pic' src='{{item.img}}' data-id='{{item.id}}'  bindtap='goods'></image>
+      <view class='gDetail'>
+        <view class='gName'>{{item.name}}</view>
+        <text class='gPrice'>￥{{item.real_price}}</text>
+        <view class='active'>
+          <text class='logo' wx:if="{{item.prom_type == 0}}">未参加活动</text> 
+          <text class='logo' wx:if="{{item.prom_type == 1}}">商品促销</text> 
+          <text class='logo' wx:if="{{item.prom_type == 2}}">抢购</text> 
+          <text class='logo' wx:if="{{item.prom_type == 3}}">团购</text> 
+          <!-- <text class='txt'>满200元减40，满400元减80</text> -->
+        </view>
+      </view>
+    </view>
+    <view data-id="{{item.id}}" data-product_id="{{item.product_id}}" bindtap = "delItem" class="inner del">删除</view> 
+  </view>
+  <view class="tips">
+      <view class='noMore' wx:if="{{!hasMore}}"><text>没有更多内容了</text></view>
+  </view>
+  </scroll-view>
+</view>

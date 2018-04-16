@@ -1,0 +1,150 @@
+/* pages/order/checkedAddress/checkedAddress.wxss */
+page{
+  background-color: #f4f4f4;
+}
+.top{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 176rpx;
+  background: linear-gradient(to right, #fa5181, #ff2b49);
+}
+.bottom{
+  position: relative;
+  left: 4%;
+  width: 92%;
+  height: 72rpx;
+  background: linear-gradient(to right, #fa5181, #ff2b49);
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 4rpx;
+  line-height: 72rpx;
+}
+.addressList{
+  position: relative;
+  top:40rpx;
+  width: 92%;
+  margin: 0 auto;
+}
+.list{
+  height: 250rpx;
+  background-color: #fff;
+  border:solid 1rpx #eadcdc;
+  border-radius: 5rpx;
+  margin-top:30rpx; 
+}
+.list .address{
+  position: absolute;
+  width: 86%;
+  height: 186rpx;
+  padding: 34rpx 20rpx;
+}
+.address .info{
+  height: 120rpx;
+}
+.info .top1{
+  width: 100%;
+  height: 30rpx;
+}
+.info .top1 .name{
+  float: left;
+  height: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 30rpx;
+}
+.info .top1 .phone{
+  float: left;
+  height: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  margin-left: 68rpx;
+}
+.info .addr{
+  color:#666;
+  font-size: 24rpx;
+  margin-top: 30rpx;
+}
+.operation{
+  width: 100%;
+  height: 36rpx;
+  margin-top: 30rpx;
+}
+.operation .checked{
+  float: left;
+  color: #333;
+  font-size: 24rpx;
+}
+.checked text{
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-left: 6rpx;
+}
+.null{
+  width: 100%;
+  height: 160rpx;
+}
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;    
+  width: 100%;
+  height: 100%;
+  background-color: rgba(60,60,60, 0.8);
+}
+.add{
+  position: fixed;
+  left: 4%;
+  top:190rpx;
+  width: 92%;
+  height: 730rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
+  z-index: 999;
+}
+.title{
+  width: 92%;
+  height: 78rpx;
+  margin: 0rpx auto;
+}
+.title .btn{
+  width: 30rpx;
+  height: 30rpx;
+  float: left;
+  margin-top: 24rpx;
+}
+.title .subTitle{
+  float: left; 
+  height: 30rpx;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  margin-left: 200rpx;
+  margin-top: 24rpx;
+}
+.content{
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 410rpx;
+  padding: 0 20rpx;
+  font-size: 25rpx;
+}
+.accept_name,.mobile,.location,.addrs{
+  height: 64rpx;
+   margin-top: 20rpx;
+}
+.content text{
+  float:left;
+  width: 130rpx;
+  height: 62rpx;
+  text-align: right;
+  line-height: 62rpx;
+}
+
+
+
+

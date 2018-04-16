@@ -1,0 +1,30 @@
+<!--pages/logs/register/register.wxml-->
+<view class='form'>
+  <form bindsubmit="formSubmit">
+    <view class='username'>
+      <text>用户名</text>
+      <input name='username' placeholder='请输入用户名' placeholder-class="phcolor"></input>
+    </view>
+    <view class='phone'>
+      <text>手机号</text>
+      <input name='account' type='number' maxlength='11' placeholder='请输入手机号' placeholder-class="phcolor" bindblur='phone'></input>
+    </view>
+
+    <view class='code'>
+      <text>手机验证码</text>
+      <input name='reg_code' type='number' placeholder='验证码' placeholder-class="phcolor" bindblur="validateType"></input>
+      <text class='gain' bindtap='code'>{{msg}}</text>
+    </view> 
+    <view class='psd'>
+      <text>设置密码</text>
+      <input name='userpass' placeholder='登录密码' placeholder-class="phcolor" password="{{lock}}" focus="{{getfocus}}"></input>
+      <text class='lock iconfont icon-kejian' style='color:{{col}}' bindtap='lock' data-lock="{{lock}}"></text>
+    </view>
+    <button class='register' formType='submit'>注册</button>
+  </form>
+</view>
+<view class='bottom'>
+  <text class='already'>已有帐号？</text>
+  <text class='login' bindtap='login'>登录</text>
+</view>
+

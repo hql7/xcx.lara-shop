@@ -1,0 +1,94 @@
+/* pages/mine/accountPass/accountPass.wxss */
+page{
+  background-color: #f1f2f7;
+}
+.form{
+  width: 100%;
+  height: 508rpx;
+  background-color: #fff;
+}
+.username,.phone,.code,.img_code,.psd,.password{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 26rpx;
+}
+.username,.phone,.img_code,.code,.password{
+  border-bottom: solid 2rpx #f1f2f7;
+}
+.username text,.phone text,.img_code text,.code text,.psd text,.password text{
+  width: 18%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #333;
+  margin-left: 20rpx;
+  float: left;
+}
+input{
+  width: 54%;
+  height: 100rpx;
+  padding-left: 36rpx;
+  font-size: 26rpx;
+  float: left;
+}
+.img_code image{
+  float: right;
+  width: 30%;
+  height: 100rpx;
+}
+.img_code input{
+  width: 40%;
+}
+.code input{
+  width: 36%;
+  border-right: solid 2rpx #f1f2f7;
+}
+button[class="gain"]::after {
+  border: 0;
+} 
+.code .gain{
+  width: 30%;
+  height: 100rpx;
+  font-size: 26rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #a6a6a6;
+}
+.psd .lock{
+  width: 100rpx;
+  height: 100rpx;
+  float: right;
+  background-color: #fff;
+}
+.register{
+  width: 92%;
+  height: 80rpx;
+  margin-left: 4%;
+  font-size: 30rpx;
+  background: linear-gradient(to right, #fa5181, #ff2b49);
+  color:#fff;
+  margin-top: 60rpx;
+}
+.bottom{
+  width: 96%;
+  height: 60rpx;
+  margin-top: 160rpx;
+}
+.bottom .login{
+  height: 40rpx;
+  width: 80rpx;
+  float: right;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  text-align: center;
+  margin-top: 10rpx;
+  border: solid 2rpx #f51322;
+  color: #f51322;
+}
+.bottom .already{
+  float: right;
+  color: #333;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  margin-right: 20rpx;
+}

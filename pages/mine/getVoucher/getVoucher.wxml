@@ -1,0 +1,84 @@
+<!--pages/mine/getVoucher/getVoucher.wxml-->
+<!-- 限时抢购分类导航  -->
+<view class='head'>
+  <scroll-view scroll-x="true" class='listScroll'>
+    <view wx:for="{{flashSaleNav}}" wx:for-index="idx" class="tabList {{currentTab == idx ? 'on' : ''}}" data-id='{{item.id}}' data-current="{{idx}}" bindtap="swichNav">
+      <text>{{item.phone_name}}</text>
+    </view> 
+  </scroll-view>
+  <view class='pullMore' bindtap='btnShow'>
+    <image src='../../../images/pullMore.png'></image>
+  </view>
+</view>
+
+<!-- 覆盖层 -->
+<view class="cover coverShow{{flag?'coverHide':''}}">
+  <view class='container'>
+    <view class='top'>
+      <view><text>全部{{count}}个分类</text></view>
+      <view class="packUp" bindtap='btnShow'><image src='../../../images/pullMore.png'></image></view>
+    </view>
+    <view class='kindDetail'  bindtap='selectKind'>
+      <text wx:for="{{flashSaleNav}}" wx:for-index="index" data-index='{{index}}' >{{item.phone_name}}</text>
+    </view>
+  </view>
+</view>
+
+ <!-- 限时抢购商品详情  -->
+<swiper class='flashDetail' style='height:{{winHeight-42}}px'>
+  <swiper-item>
+    <scroll-view scroll-y="true" class='flashGoods' duration="300">
+      <!-- <view class='list' wx:for="{{goodsList}}" data-id='{{item.id}}' bindchange="bindChange">
+        <view class='goods' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}">
+          <view class='cartIcon' data-id='{{item.id}}' bindtap='addCart'></view>
+          <image class='pic' src='{{item.img}}' data-id='{{item.id}}'  bindtap='goods'></image>
+          <view class='gDetail'>
+            <view class='gName'>{{item.name}}</view>
+            <text class='gPrice'>￥{{item.real_price}}</text>
+            <view class='active'>
+              <text class='logo' wx:if="{{item.prom_type == 0}}">该商品暂未参加活动</text> 
+              <text class='logo' wx:if="{{item.prom_type == 1}}">商品促销</text> 
+              <text class='logo' wx:if="{{item.prom_type == 2}}">抢购</text> 
+              <text class='logo' wx:if="{{item.prom_type == 3}}">团购</text> 
+            </view>
+          </view>
+        </view>
+        <view data-id="{{item.id}}" bindtap = "delItem" class="inner del">删除</view> 
+      </view> -->
+      <view class='voucher' wx:for="{{voucherList}}">
+        <view class='left'>
+          <view class='number'>
+            <text class='symbol'>￥</text>
+            <text class='num'>{{item.value}}</text>
+          </view>
+          <view class='condition'>满{{item.money}}可用</view>
+        </view>
+        <view class='leftBorder'>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+        </view>
+        <view class='right'>
+          <view class='content'>
+            <view class='text'>{{item.description}}</view>
+            <view class='time'>{{item.start_time}}-{{item.end_time}}</view> 
+            <view class='mark' wx:if="{{item.is_receive == 1}}">已领取</view>   
+            <view class='get' data-id="{{item.id}}" bindtap='getVoucher' wx:if="{{item.store_num != 0}}">立即领取</view>
+            <view class='mark' wx:else>今日已抢完</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+

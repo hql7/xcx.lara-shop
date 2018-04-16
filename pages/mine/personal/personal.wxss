@@ -1,0 +1,222 @@
+/* pages/user/person/person.wxss */
+page{
+  background-color: #f5f5f5;
+}
+.header{
+  position: relative;
+  top: 0;
+  left: 0; 
+  width: 100%;
+  height: 320rpx;
+  background: linear-gradient(to right, #fa5181, #ff2b49);
+}
+.header view:nth-child(1){
+  position: absolute;
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  z-index: 20;
+  font-size: 30rpx;
+}
+.header view:nth-child(1) text{
+  position: absolute;
+  color: #fff;
+  padding: 2%;
+}
+.header .set{
+  left: 1%;
+}
+.header .msg{
+  right: 1%;
+}
+.header .headPic{
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  text-align: center;
+}
+.header .headPic .pic{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 2rpx solid #fff;
+  margin-top: 56rpx;
+}
+.header .headPic text{
+  font-size: 26rpx;
+  color: #fff;
+}
+.myPoint{
+  position: relative;
+  top:-80rpx;
+  display: flex;
+  justify-content: space-around;
+  width: 93%;
+  height: 160rpx;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 1px 2px #f6dfe2;
+  background-color: #fff; 
+  border-radius: 2rpx;
+}
+.myPoint view{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+  align-content: space-around; 
+}
+.myPoint view text{
+  font-size: 26rpx;
+}
+.myPoint view .num{
+  font-weight: bolder;
+  color: #f51322;
+  font-size: 32rpx;
+}
+.order{
+  height: 200rpx;
+  padding-bottom: 18rpx; 
+  border: 1rpx solid #f3f3f3;
+  background-color: #fff;
+  margin-top: -80rpx;
+}
+.order .orderTop{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 93%;
+  margin: 0 auto;
+  height: 90rpx;
+}
+.orderTop .title{
+  font-size: 28rpx;
+  color: #f51322;
+}
+.orderTop .more{
+  font-size: 24rpx;
+  color: #7d7d7d;
+}
+.orderTop .more .icon-enter{
+  font-size: 24rpx;
+  color: #7d7d7d;
+}
+.orderTop image{
+  width: 9rpx;
+  height: 17rpx;
+  margin-left: 12rpx;
+}
+.order .orderContent{
+  display: flex;
+  width: 100%;  
+  height: 110rpx;
+}
+.orderContent .status {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;  
+  width: 20%;
+  text-align: center;
+}
+.orderContent .status text{
+  /* display: block; */
+  height: 50%;
+  font-size: 24rpx;
+  color: #7d7d7d;
+  line-height: 55rpx;
+}
+.orderContent .status text:nth-child(2){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orderContent .status:nth-child(1) .iconfont{
+  font-size: 48rpx;
+  line-height: 56rpx;
+  color: #333;
+}
+.orderContent .status:nth-child(2) .iconfont{
+  font-size: 48rpx;
+  line-height: 56rpx;
+  color: #333;
+}
+.orderContent .status:nth-child(3) .iconfont{
+  font-size: 48rpx;
+  line-height: 56rpx;
+  color: #333;
+}
+.orderContent .status:nth-child(4) .iconfont{
+  font-size: 48rpx;
+  line-height: 56rpx;
+  color: #333;
+}
+.orderContent .status:nth-child(5) .iconfont{
+  font-size: 48rpx;
+  line-height: 56rpx;
+  color: #333;
+}
+.orderContent .num{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 84rpx;
+  margin-top: -46rpx;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #f51322;
+  border-radius: 50%;
+}
+/* 功能 */
+.function{
+  display: flex;
+  flex-flow: column;
+  background-color: #fff;
+}
+.function view{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80rpx;
+  width: 96%;
+  margin: 0 auto;
+  border-bottom: 1px solid #f3f3f3;
+}
+.function view .fLeft{
+  display: flex;
+  justify-content: flex-start;
+}
+.function .item:nth-child(1) .icon{
+  color: #ff9600;
+}
+.function .item:nth-child(2) .icon{
+  color: #00b8b6;
+}
+.function .item:nth-child(3) .icon{
+  color: #1bd420;
+}
+.function .item:nth-child(4) .icon{
+  color: #ee153e;
+}
+.function .item:nth-child(5) .icon{
+  color: #15aeee;
+}
+.function .item:nth-child(6) .icon{
+  color: #eb12d4;
+}
+.function view .iconfont{
+  font-size: 36rpx;
+  line-height: 80rpx;
+}
+.function .icon-enter{
+  padding-right: 10rpx;
+}
+.function view text{
+  font-size: 28rpx;
+  color: #444;
+  margin-left: 28rpx;
+}
+.function view .email{
+  height: 18rpx;
+}

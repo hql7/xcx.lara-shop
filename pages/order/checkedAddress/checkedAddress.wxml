@@ -1,0 +1,24 @@
+<!--pages/order/checkedAddress/checkedAddress.wxml-->
+<view class='top'></view>
+<view class='addressList'>
+  <view class='list' wx:for="{{addressList}}">
+    <view class='address'>
+      <view class='info'>
+        <view class='top1'>
+          <view class='name'>{{item.accept_name}}</view>
+          <view class='phone'>{{item.mobile}}</view>
+        </view>
+        <view class='addr'>{{item.location}} {{item.addr}}</view>
+      </view>
+      <view class='operation'>
+        <view class='checked'>
+          <icon type="{{item.is_default ? 'success' : 'circle'}}" color="{{item.is_default ? '#f51231' : '#a6a6a6'}}" size='16' bindtap="selectProduct"  data-id="{{item.id}}"></icon>
+          <text>选择地址</text>
+        </view>
+      </view>
+    </view>
+  </view>
+<view class='null'></view>
+</view>
+
+

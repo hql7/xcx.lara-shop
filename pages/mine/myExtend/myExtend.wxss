@@ -1,0 +1,83 @@
+/* pages/mine/myExtend/myExtend.wxss */
+.wrapper{
+  width: 93%;
+  margin: 0 auto;
+}
+.myExtend{
+  padding-bottom: 100rpx;
+}
+.active{
+  width: 700rpx;
+  height: 136rpx;
+  margin: 0 auto;
+  padding: 34rpx 0;
+}
+.active .title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.active .important{
+  color: #f34d37;
+}
+.active .despriction{
+  width: 684rpx;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+
+.link{
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1rpx solid #cdcdcd;
+  overflow: hidden;
+  font-size: 24rpx; 
+  color: #333333; 
+  text-align: center;
+}
+
+.copy{
+  width: 300rpx;
+  height: 60rpx;
+  margin: 30rpx auto;
+  line-height: 60rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #f64242;
+  font-size: 24rpx; 
+}
+.qrCode{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  width: 310rpx;
+  height: 348rpx;
+  margin: 50rpx auto 24rpx auto;
+}
+.qrCode image{
+  width: 310rpx;
+  height: 310rpx;
+}
+.qrCode text{
+  font-size: 24rpx;
+  color: #333333;
+  text-align: center;
+}
+
+.step{
+  height: 368rpx;
+}
+.step text{
+  font-size: 24rpx;
+  color: #333333;
+}
+.step .pic{
+  display: flex;
+  justify-content: space-between;
+  height: 300rpx;
+  margin-top: 16rpx;
+}
+.pic image{
+  width: 336rpx;
+  height: 300rpx;
+}

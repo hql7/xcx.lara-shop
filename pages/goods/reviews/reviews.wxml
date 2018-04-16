@@ -1,0 +1,236 @@
+<!--pages/goods/reviews/reviews.wxml-->
+<view class="swiperTab">
+  <view class="swiperTablist {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">商品</view>
+  <view class="swiperTablist {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">详情</view>
+  <view class="swiperTablist {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">评价</view>
+</view>
+<swiper current="{{currentTab}}" style='height:{{winHeight-43}}px' class="swiperBox" duration="300" bindchange="bindChange">
+  <!-- 商品 -->
+  <swiper-item>
+    <scroll-view scroll-y="true">
+      <view class='good'>
+        <swiper class="swiperImg" indicator-dots="true" indicator-color="#fcecf4" indicator-active-color="#d97f85" interval="2000" duration="1000">
+          <block>
+            <swiper-item wx:for="{{goodDespriction.imgs}}">
+              <image src='{{item}}' mode="aspectFit"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class='gDespriction'>
+          <view class='sale' wx:if="{{goodDespriction.sale_title != null}}">
+            <view class='left'>
+              <text class='fSign iconfont icon-naozhong'></text>
+              <text wx:if="{{goodDespriction.sale_desc == null}}">{{goodDespriction.sale_title}} 可优惠￥{{goodDespriction.sell_price-goodDespriction.sale_price}}</text>
+              <text wx:if="{{goodDespriction.sale_desc != null}}">{{goodDespriction.sale_title}} ({{goodDespriction.sale_desc}})</text>
+              <text>距离结束还剩</text>
+              <text>现价￥{{goodDespriction.sale_price?goodDespriction.sale_price:goodDespriction.sell_price}}</text>
+              <text>原价￥{{goodDespriction.sell_price}}</text>
+              <text>{{d}}:{{wxTimerList['wxTimer'].wxTimer}}</text>
+            </view>
+          </view>
+          <view class='gName'>
+            <text>{{goodDespriction.name}}</text>
+          </view>
+          <view class='gPrice' wx:if="{{goodDespriction.sale_title == null}}">
+            <text class='gSale'>￥{{goodDespriction.sell_price}}</text>
+            <text class='oldPrice'>原价￥{{goodDespriction.market_price}}</text>
+          </view>
+          <!-- <view class='other'>
+            <text>快递：0.00</text>
+            <text>库存{{goodDespriction.store_nums}}件</text>
+            <text>默认地址</text>
+          </view> -->
+        </view>
+        <!-- 服务保障  -->
+        <view class='ensure'>
+          <text>服务承诺</text>
+          <text>商家发货&售后</text>
+          <text>闪电退款</text>
+          <text>七天无理由退货</text>
+        </view>
+
+        <!-- 积分  不要-->
+        <!-- <view class='same points'>
+          <text>积分：</text>
+          <text>购买可得{{goodDespriction.sell_price*10%}}积分</text>
+        </view> -->
+
+        <!-- 已选商品 -->
+        <view class='same option'>
+          <text>已选：</text>
+          <text bindtap='btnShow'>{{goodsSpec?goodsSpec:'默认规格'}}</text>
+        </view>
+        <!-- 评价  -->
+        <view class='reviews'>
+          <view class='topic'>
+            <view class='txt fl'>
+              <text>评价</text>
+              <text class='num'>（{{goodsReviews.reviews_info.total_nums}}）</text>
+            </view>
+            <view class='praise fr'>
+              <text>好评度</text>
+              <text class='degree'>{{goodsReviews.reviews_info.favorable_rate}}%</text>
+            </view>
+          </view>
+          <!-- 评价详情  -->
+        </view>
+
+        <!-- 查看全部评价  -->
+        <view class='loadMore'>
+          <text data-current="2" bindtap="swichNav">查看全部评价</text>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 操作  -->
+    <view class='handle'>
+      <view class='left'>
+        <view class='connect' bindtap='addAttention' data-id="{{goodDespriction.id}}" data-product_id="{{goodDespriction.product_id}}">
+          <text class='iconfont icon-xin' style='{{color}}'></text>
+          <text>收藏</text>
+        </view>
+        <view class='cart' bindtap='cart'>
+          <text class='iconfont icon-gouwuche8'></text>
+          <text>购物车</text>
+          <text class='num {{count?"coverShow":""}}'>1</text>
+        </view>
+      </view>
+      <view class='right'>
+        <text class='addCart' bindtap='btnShow'>加入购物车</text>
+        <text class='buy' bindtap='buy' data-id="{{goodDespriction.id}}" data-product="{{goodDespriction.product_id}}">立即购买</text>
+      </view>
+    </view>
+    <!-- 商品规格 覆盖层  -->
+    <view class="cover {{flag?'coverHide':'coverShow'}}">
+      <view class='container'>
+        <!-- 商品详情  -->
+        <view class='cDetail'>
+          <view>
+            <image src='{{goodDespriction.img}}'></image>
+          </view>
+          <view>
+            <text class='cPrice'>￥{{goodDespriction.sale_price}}</text>
+            <text>商品编号：{{goodDespriction.product_no}}</text>
+            <text>库存：{{goodDespriction.store_nums}}件</text>
+          </view>
+          <text class='iconfont icon-tuichu' bindtap='btnShow'></text>
+        </view>
+        <!-- 商品规格  -->
+        <view class='cType' wx:if="{{goodDespriction.specs[0].id != ''}}">
+          <scroll-view scroll-y="true" style='height:400rpx;'>
+            <view class='tTitle'>
+              <view wx:for="{{goodDespriction.specs}}" wx:for-item="itemSpecs">
+                <view>{{itemSpecs.name}}</view>
+                <view data-pid="{{itemSpecs.id}}" wx:for="{{itemSpecs.value}}" wx:for-item="itemValue" bindtap='selectSpecs' data-id="{{itemValue.id}}" class="{{itemValue.class}}">
+                  <view>{{itemValue.name}}</view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+        <view class='cType' wx:else>
+          <view>默认规格</view>
+        </view>
+        <!-- 商品数量  -->
+        <view class='cCount'>
+          <text>数量</text>
+          <view>
+            <text bindtap="changeNumber" data-type="min">-</text>
+            <text>{{num}}</text>
+            <text bindtap="changeNumber" data-type="plus">+</text>
+          </view>
+        </view>
+        <!-- 商品操作  -->
+        <view class='cHandle'>
+          <view bindtap='addCart' data-product_id="{{goodDespriction.product_id}}">加入购物车</view>
+          <view bindtap='buy' data-id="{{goodDespriction.id}}" data-product="{{goodDespriction.product_id}}">立即购买</view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <!-- 详情 -->
+  <swiper-item>
+    <scroll-view scroll-y="true">
+      <view wx:for="{{img}}" class='gImgDetail'>
+        <image src='{{item}}'></image>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+
+
+
+
+  <!-- 评价 -->
+  <swiper-item>
+    <view class='reviews'>
+      <view class='topic'>
+        <view class='txt fl'>
+          <text>评价</text>
+          <text class='num'>（{{goodsReviews.reviews_info.total_nums}}）</text>
+        </view>
+        <view class='praise fr'>
+          <text>好评度</text>
+          <text class='degree'>{{goodsReviews.reviews_info.favorable_rate}}%</text>
+        </view>
+      </view>
+      <!-- 评价选项  -->
+      <view class='rClass'>
+        <view style='{{index == 0 ? selectStyleOff : selectStyleNo}}' bindtap='bindSelect' data-index="0">
+          <!-- <text class='mark' style='display:{{markDisplay}}'>√</text> -->
+          <text>全部</text>
+          <text class='count'>{{goodsReviews.reviews_info.total_nums}}</text>
+        </view>
+        <view style='{{index == 2 ? selectStyleOff : selectStyleNo}}' bindtap='bindSelect' data-index="2">
+          <text>好评</text>
+          <text class='count'>{{goodsReviews.reviews_info.high_nums}}</text>
+        </view>
+        <view style='{{index == 3 ? selectStyleOff : selectStyleNo}}' bindtap='bindSelect' data-index="3">
+          <text>中评</text>
+          <text class='count'>{{goodsReviews.reviews_info.middle_nums}}</text>
+        </view>
+        <view style='{{index == 4 ? selectStyleOff : selectStyleNo}}' bindtap='bindSelect' data-index="4">
+          <text>差评</text>
+          <text class='count'>{{goodsReviews.reviews_info.bad_nums}}</text>
+        </view>
+        <view style='{{index == 1 ? selectStyleOff : selectStyleNo}}' bindtap='bindSelect' data-index="1">
+          <text>有图</text>
+          <text class='count'>{{goodsReviews.reviews_info.img_nums}}</text>
+        </view>
+      </view>
+      <!-- 评价详情  -->
+      <scroll-view scroll-y="true" class='reviewScroll'>
+        <view class='rDetail' wx:for="{{goodsReviews.list}}">
+          <!-- 评论用户信息  -->
+          <view class='rUseInfo'>
+            <image></image>
+            <text>{{item.username}}</text>
+            <view class='star fr'>
+              <text class="iconfont icon-collection_fill {{item.point>=1? 'lightStar': ''}}" bindtap="changeColor" data-choose='1' data-index="{{index}}"></text>
+              <text class="iconfont icon-collection_fill {{item.point>=2? 'lightStar': ''}}" bindtap="changeColor" data-choose='2' data-index="{{index}}"></text>
+              <text class="iconfont icon-collection_fill {{item.point>=3? 'lightStar': ''}}" bindtap="changeColor" data-choose='3' data-index="{{index}}"></text>
+              <text class="iconfont icon-collection_fill {{item.point>=4? 'lightStar': ''}}" bindtap="changeColor" data-choose='4' data-index="{{index}}"></text>
+              <text class="iconfont icon-collection_fill {{item.point>=5? 'lightStar': ''}}" bindtap="changeColor" data-choose='5' data-index="{{index}}"></text>
+            </view>
+          </view>
+          <!-- 评论详情  -->
+          <view>
+            <text>{{item.content}}</text>
+          </view>
+          <!-- 评论图片  -->
+          <view class='rImg'>
+            <view wx:if="{{item.imgs.length != 0}}" wx:for="{{item.imgs}}" wx:for-index="idx" wx:for-item="itemName">
+              <image src='{{itemName}}'></image>
+            </view>
+          </view>
+          <!-- 评论时间  -->
+          <view>
+            <text class='time'>{{item.comment_time}}</text>
+            <text>{{item.spec_str}}</text>
+          </view>
+        </view>
+        <text class='loadEnd'>没有更多啦~</text>
+      </scroll-view>
+    </view>
+  </swiper-item>
+</swiper>

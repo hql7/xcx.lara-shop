@@ -1,0 +1,24 @@
+<!--pages/order/pay/pay.wxml-->
+<view class='page'>
+<view class='order-pay'>
+  <view class='order-pay-left'>
+  选择支付方式  
+  </view>
+  <view class='order-pay-right'>应付金额：<text>￥{{(money*100|int)/100}}元</text></view>
+</view> 
+<form bindsubmit="formSubmit">
+<radio-group class="radio-group" name="pay_id" bindchange="radioChange">
+<view class='order-pay-mode'><view class='pay-mode'><image src='/images/balance.png'></image>    账户余额支付</view>
+    <radio value="1" checked="true" color="#f51322"></radio>
+  </view>
+<view class='order-pay-mode'><view class='pay-mode'><image src='/images/weixin.png'></image>微信支付</view><radio value="3" color="#f51322" bindtap='wxPay'></radio></view>
+</radio-group>
+<view>
+  <input name="safepass" password placeholder='请输入交易密码' placeholder-style='font-size:28rpx;' style='padding-left:20rpx;border: 2rpx solid #e1e1e1;width:85%;margin:100rpx 6%;height:70rpx;'></input>
+</view>
+<view class='real-pay'>实付金额：<text>{{(money*100|int)/100}}元</text></view>
+        <button class="weui-btn" formType="submit">确认支付</button>
+        
+</form>
+</view>
+

@@ -1,0 +1,207 @@
+/* pages/order/orderDetail/orderDetail.wxss */
+page{
+  background-color: #f4f4f4;
+}
+
+/* 头部信息 */
+.top{
+  width: 100%;
+  height: 260rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  border-bottom: solid #efefef 1rpx;
+  border-top: solid #efefef 1rpx;
+}
+.top .status{
+  width: 100%;
+  height: 90rpx;
+  border-bottom: solid #efefef 1rpx;
+}
+.status .left{
+  width: 200rpx;
+  height: 90rpx;
+  margin-left: 4%;
+  float: left;
+}
+.status .left image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.status .left text{
+  font-size: 32rpx;
+  line-height: 90rpx;
+  margin-left: 10rpx;
+  color: #f51322;
+}
+.status .right{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  width: 350rpx;
+  height: 90rpx;
+  float: right;
+}
+.status .right text{
+  font-size: 22rpx;
+  color: #333;
+  margin-top: 10rpx;
+  line-height: 22rpx;
+}
+.top .info{
+  width: 92%;
+  height:170rpx;
+  margin-left: 4%; 
+  margin-top: 10rpx;
+}
+.info .left{
+  width: 350rpx;
+  height: 24rpx;
+  float: left;
+}
+.info .left image{
+  width: 24rpx;
+  height: 24rpx;
+}
+.info .left text{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 24rpx;
+  margin-left: 10rpx;
+}
+.info .right{
+  width: 300rpx;
+  height: 24rpx;
+  float: right;
+  text-align: right;
+}
+.info .right image{
+  width: 24rpx;
+  height: 24rpx;
+}
+.info .right text{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 24rpx;
+  margin-left: 10rpx;
+}
+.info .address{
+  display: inline-block;
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 40rpx;
+}
+
+/* 商品信息 */
+.shop{
+  width: 100%;
+  height: 70rpx;
+  background-color: #fff;
+  border-bottom: solid #efefef 1rpx;
+  border-top: solid #efefef 1rpx;
+  margin-top: 30rpx;
+}
+.shop image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 4%;
+}
+.shop text{
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #333;
+  margin-left: 10rpx;
+}
+.goods{
+  width: 92%;
+  height: 150rpx;
+  margin-left: 4%;
+  margin-top: 30rpx;
+}
+.goods .left{
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+}
+.goods .left image{
+  width: 150rpx;
+  height: 150rpx;
+  border: solid #efefef 1rpx;
+}
+.goods .right{
+  width: 500rpx;
+  height: 150rpx;
+  float: right;
+  margin-left: 20rpx;
+}
+.goods text{
+  display: inline-block;
+  width: 100%;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.orderinfo{
+  width: 100%;
+  height: 280rpx;
+  background-color: #fff;
+  color: #333;
+  font-size: 26rpx;
+  padding: 40rpx 0;
+  margin-top: 40rpx;
+}
+.orderinfo view{
+  width: 92%;
+  height: 40rpx;
+  margin-left: 4%;
+}
+.orderinfo view .left{
+  float: left;
+}
+.orderinfo view .right{
+  float: right;
+  text-align: right;
+}
+.logistics{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  color: #333;
+  font-size: 26rpx;
+  padding: 40rpx 0;
+  margin-top: 40rpx;
+}
+.logistics text{
+  display: inline-block;
+  width: 92%;
+  margin-left: 4%;
+}
+
+.bottom{
+  width: 100%;
+  height: 200rpx;
+  background-color: #fff;
+  margin-top: 100rpx; 
+}
+
+.bottom .left{
+  width: 190rpx;
+  height: 50rpx;
+  background-color: #fdbf14;
+  float: right;
+  font-size: 30rpx;
+  margin-top: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.bottom .right{
+  width: 190rpx;
+  height: 100rpx;
+  background-color: #f51322;
+  float: right;
+  font-size: 30rpx;
+  margin-top: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  margin-right: 2rpx;
+  color:#fff;
+}

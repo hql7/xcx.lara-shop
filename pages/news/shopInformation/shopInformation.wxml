@@ -1,0 +1,12 @@
+<!--pages/news/shopInformation/shopInformation.wxml-->
+<view class='msg'>
+  <view class='msglist' wx:for='{{msgList}}'>
+    <view class='msgItem' bindtap='skip' data-article_id="{{item.id}}" data-title="{{item.title}}">
+      <view class='msgContent'>
+        <text class='mDes'>{{item.title}}</text>
+      </view>
+      <image src='../../../images/more.png' class='more'></image>
+    </view>
+  </view>
+</view>
+

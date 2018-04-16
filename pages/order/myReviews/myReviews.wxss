@@ -1,0 +1,145 @@
+/* pages/order/myReviews/myReviews.wxss */
+Page {
+    background: #f1f2f7;
+}
+.swiperTab{ 
+  display: flex; 
+  justify-content: space-around;
+  width: 100%; 
+  text-align: center;  
+  line-height: 80rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #e3e3e3;
+}  
+.swiperTablist{  
+  font-size: 30rpx;  
+  display: inline-block; 
+  padding: 0 30rpx; 
+  color: #333333; 
+}
+.on{ 
+  font-size: 30rpx;
+  color: #f51322;  
+  border-bottom: 5rpx solid #f51322;
+} 
+.swiperBox{ 
+  display: block; 
+  width: 100%; 
+  background-color: #f1f3f7;
+}
+.swiperBox scroll-view:nth-child(1){
+  height: 100%;
+}
+.swiperBox ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent; 
+}
+scroll-view {
+  font-size:0;
+}
+.order {
+  width: 100%;
+  margin-top:20rpx;
+  background: #fff;
+  border-top: 1rpx solid #e4e4e4;  
+  
+}
+.order-top {
+  padding: 0 25rpx;
+  font-size: 18rpx;
+  color:#666;
+  border-bottom: 1rpx solid #e4e4e4;  
+  
+}
+.order-top text {
+  margin-right:35rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+}
+.order-content {
+  width: 675rpx;
+  display: flex;
+  flex-flow:row;
+  align-items: center;
+}
+.order-img {
+  width: 164rpx;
+  height: 188rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 26rpx;
+}
+.order-detail {
+  width: 560rpx;
+  height: 126rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  margin-left: 30rpx;
+
+}
+.order-detail text{
+  width: 530rpx;
+  font-size:18rpx;
+  color: #333; 
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.order-right-bottom {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;  
+  height: 45rpx;
+}
+.order-price {
+  font-size: 18rpx;
+  color: #333;
+  height: 45rpx;
+  line-height: 60rpx;
+
+}
+.order-num {
+  font-size: 18rpx;
+  color: #999;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.order-detail-btn {
+  font-size: 22rpx;
+  color:#333;
+  padding: 0rpx 10rpx;
+}
+.order-bottom-right{
+  display: flex;
+  align-items: center;
+}
+.order-bottom-right .order-commit{
+  font-size: 22rpx;
+  color:#f51322; 
+  padding: 0rpx 10rpx;
+  margin-left: 30rpx;
+  text-align: center;
+  border-radius: 7rpx;
+  border: 1rpx solid #f51322;  
+}
+.order-reviews {
+  font-size: 22rpx;
+  color:#999999;
+  border: 1rpx solid #ccc;
+  height: 45rpx;
+  width: 120rpx;
+  margin-left:20rpx; 
+  text-align: center;
+  line-height: 45rpx;
+  border-radius: 7rpx;
+}
+.reviews-none {
+  display: none;
+}
+.reviews-block {
+  display: block;
+}

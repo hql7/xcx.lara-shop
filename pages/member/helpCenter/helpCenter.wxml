@@ -1,0 +1,7 @@
+<!--pages/member/helpCenter/helpCenter.wxml-->
+<view class='helpCenter'>
+  <view bindtap='helpDetail' wx:for="{{help}}" data-id="{{item.id}}" bindtap='detail'>
+    <text>{{item.title}}</text>
+    <image src="../../../images/more.png"></image>
+  </view>
+</view>

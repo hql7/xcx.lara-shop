@@ -1,0 +1,12 @@
+<!--pages/mine/msg/msg.wxml-->
+<view class='msg'>
+  <view class='msglist' wx:for='{{msgList}}'>
+    <view class='msgItem'>
+      <view class='msgTitle'>
+        <text class='mDes'>{{item.title}}</text>
+        <text class='mTime'>时间：{{item.time}}</text>
+        <text class='content'>{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,239 @@
+<!--pages/order/my-order/firm-order.wxml-->
+<form bindsubmit="formSubmit">
+  <!-- 订单详情  -->
+  <scroll-view class='orderScroll' scroll-y="true" style='height:{{winHeight-45}}px'>
+    <view class="in-small-appmsg order-top">
+      <view class='order-top-address'>
+        <text>{{address.accept_name}} </text>
+        <text> {{address.mobile}}</text>
+        <view class='order-default' style='display:{{address.is_default == 1 ? "block" : "none"}}'>默认</view>
+      </view>
+      <navigator url="../../order/checkedAddress/checkedAddress" class="weui-cell_access order-top-down">
+        <view class="weui-cell__hd order-add">地址 ：</view>
+        <view class="weui-cell__bd weui-cell_primary weui-order-add">
+          <view>{{address.address}}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access weui-order-address-next"></view>
+      </navigator>
+      <image src='/images/orderAddress.png' style="width:100%;height:5rpx;"></image>
+    </view>
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd" wx:for="{{goods}}">
+        <navigator url="../../goods/reviews/reviews?good_id={{item.good_id}}&product_id={{item.product_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{item.img}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{item.good_name}}</view>
+            <view class="weui-media-box__desc">{{item.spec_str}}</view>
+            <view class='product-price'>{{item.price}}<text style='float: right;'>*{{item.num}}</text></view>
+            <view class='product-sale'>
+              <icon type="success" size="12" color='#0094ed'></icon> 支持七天无理由退货</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <!-- 发票 -->
+    <view class='invoices'>
+      <view class='topic'>发票</view>
+      <!-- 发票内容详情 -->
+      <view class='iDetail'>
+        <view>
+          <text>是否索要发票：</text>
+          <radio-group name='co_inv'>
+            <label class="checkbox" wx:for="{{items}}">
+              <radio value="{{item.name}}" checked='{{item.checked}}' bindtap='select_fp' data-value="{{item.name}}" color="#f51322"/>{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+        <view wx:if="{{items[1].checked == true}}">
+          <text>发票抬头类型：</text>
+          <radio-group name="co_inv_tp" >
+            <label class="checkbox" wx:for="{{type}}" >
+              <radio value="{{item.name}}" bindtap="checkboxChange" data-value="{{item.name}}" color="#f51322"/>{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+        <view wx:if="{{items[1].checked == true}}">
+          <label>
+            <text>发票抬头：</text>
+            <input class='inp' name="order_title" value='{{type[1].checked == true ? "":address.accept_name}}'></input>
+          </label>
+        </view>
+        <view wx:if="{{sj==1&&type[1].checked == true}}">
+          纳税人识别号：
+          <input class='inp' name="order_number"></input>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 优惠券积分 -->
+    <view class='order-activity'>
+      <!-- 促销活动  -->
+      <view class="weui-cell weui-cell_access-activity">
+        <view class="weui-cell__bd">
+          <view class='order-favorable'>订单促销</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access" bindtap='btnShow3'>{{porm_status == true ? porm_money : '未使用'}}</view>
+      </view>
+
+      <!--优惠券  -->
+      <view class="weui-cell weui-cell_access-activity">
+        <view class="weui-cell__bd" bindtap='btnShow'>
+          <view class='order-favorable'>优惠券</view>
+          <view class='order-num' style='display: {{vouchers.length != 0 ? "true" : "none"}}'>{{vouchers.length}}张可用</view>
+        </view>
+        
+        <view class="weui-cell__ft weui-cell__ft_in-access" bindtap='btnShow' wx:if="{{voucher_money}}">-￥{{voucher_money == '' ? '0' : voucher_money}}</view>        
+        <view class="weui-cell__ft weui-cell__ft_in-access" bindtap='btnShow' wx:if="{{voucher_money == ''}}">{{vouchers.length != 0 ? '去使用' : '无可用'}}</view>
+      </view>
+
+      <!--积分折扣  -->
+      <!-- <view class="weui-cell weui-cell_access-activity">
+        <view class="weui-cell__bd">
+          <view class='order-favorable'>积分折扣</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access" bindtap='btnShow2'>无可用</view>
+      </view> -->
+
+      <!-- <view class="weui-cell weui-cell_access-activity">
+        <view class="weui-cell__bd">
+          <view class='order-favorable order-integral'>积分 共{{amount_info.user_point}}积分,暂未开启积分兑换功能</view>
+        </view>
+      </view>  -->
+    </view>
+    <!-- 累计 -->
+    <view class="weui-form-preview__bd goods-info">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">商品金额</view>
+        <view class="weui-form-preview__value">￥{{goods_money}}
+        </view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">运费</view>
+        <view class="weui-form-preview__value">￥{{ship_money}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">商品优惠券</view>
+        <view class="weui-form-preview__value">-￥{{voucher_money}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">订单促销</view>
+        <view class="weui-form-preview__value">-￥{{porm_money}}</view>
+      </view>
+      <view class="weui-form-preview__item" wx:if="{{sj==1&&items[1].checked == true}}">
+        <view class="weui-form-preview__label">税金</view>
+        <view class="weui-form-preview__value">￥{{sj_money}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 提交支付信息  -->
+  <view class="weui-cell_pay">
+    <view class='order-amount'>
+      实付款：
+      <text>￥{{amount_money}}</text>
+    </view>
+    <button formType='submit' data-addr_id="{{address.id}}" data-voucher_id="{{vouchers.id}}" class='order-pay-button'>立即支付</button>
+  </view>
+</form>
+
+<!-- 优惠券 覆盖层  -->
+<view class="couponCover {{flag?'coverHide':'coverShow'}}">
+  <view class='container'>
+    <!-- 优惠券标题 -->
+    <view class='title'>
+      <text>使用优惠券</text>
+      <text class='btn iconfont icon-close' bindtap='btnShow'></text>
+    </view>
+    <!-- 提示  -->
+    <!-- <view class='prompt'>已为您选中推荐组合，使用优惠券1张，共抵用<text>￥20.00</text></view>   -->
+    <!-- 内容 -->
+    <scroll-view scroll-y="true" class='scrollContent'>
+      <view class='noneInfo' wx:if="{{vouchers==[]}}">无优惠券</view>    
+      <view class='content' wx:for="{{vouchers}}">
+        <view class='coupon'>
+          <view class='money'>
+            <text class='num'>{{item.value}}</text>
+            <text>元</text>
+          </view>
+          <view class='detail'>
+            <view class='cDes'>
+              <text>购物满{{item.money}}（{{item.condition}}）</text>
+              <text>使用限期{{item.start_time}}-{{item.end_time}}</text>
+            </view>
+            <text class='handleBtn' data-Voucher_id='{{item.id}}' data-money='{{item.value}}' bindtap='useVoucher'>立即使用</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 确定 -->
+    <view class='ensure' bindtap='btnShow'>
+      <text>确定</text>
+    </view>
+  </view>
+</view>
+
+<!-- 促销活动 覆盖层 -->
+<view class="couponCover {{flag3?'coverHide':'coverShow'}}">
+  <view class='container'>
+    <!-- 优惠券标题 -->
+    <view class='title'>
+      <text>订单促销</text>
+      <text class='btn iconfont icon-close' bindtap='btnShow3'></text>
+    </view>
+    <!-- 提示  -->
+    <!-- <view class='prompt'>已为您选中推荐组合，使用优惠券1张，共抵用<text>￥20.00</text></view>   -->
+    <!-- 内容 -->
+    <scroll-view scroll-y="true" class='scrollContent'>
+      <view class='noneInfo' wx:if="{{prom_orders==[]}}">无订单促销</view>
+      <view class='content' wx:for="{{prom_orders}}">
+        <view class='coupon'>
+          <view class='detail'>
+            <view class='cDes'>
+              <text>{{item.name}}（{{item.expression}}）</text>
+            </view>
+            <text class='handleBtn' data-porm_id='{{item.id}}' data-expression='{{item.expression}}' data-type="{{item.type}}" bindtap='useProm'>立即使用</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 确定 -->
+    <view class='ensure' bindtap='btnShow3'>
+      <text>确定</text>
+    </view>
+  </view>
+</view>
+
+<!-- 积分 覆盖层 -->
+<!-- <view class="couponCover {{flag2?'coverHide':'coverShow'}}"> 
+   <view class='container'>  -->
+<!-- 积分标题 -->
+<!-- <view class='title'>
+        <text>使用优惠券</text>
+        <text class="btn" bindtap='btnShow2'>X</text>
+      </view> -->
+<!-- 提示  -->
+<!-- <view class='prompt'>积分  共20积分，商品满1000可用</view>  -->
+<!-- 说明 -->
+<!-- <view class='explain'>使用说明：使用积分折扣购满1000元，20积分可抵10元</view>  -->
+<!-- 内容 -->
+<!-- <view class='pointSet'>
+        <view class='use'>
+          <text class="{{userPoint?'selectPoint':''}}" bindtap='selectPoint'></text>
+          <text>使用积分折扣</text>
+        </view>
+        <view class='unuse'>
+          <text bindtap='selectPoint' class="{{unuserPoint?'selectPoint':''}}"></text>
+          <text>不使用积分折扣</text>
+        </view>
+      </view> -->
+<!-- 确定 -->
+<!-- <view class='ensure' bindtap='btnShow2'>
+        <text>确定</text>
+      </view> 
+   </view> 
+ </view> -->

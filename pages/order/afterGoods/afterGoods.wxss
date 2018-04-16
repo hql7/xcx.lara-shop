@@ -1,0 +1,213 @@
+/* pages/order/afterGoods/afterGoods.wxss */
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.swiperTab{ 
+  display: flex; 
+  justify-content: space-around;
+  width: 100%; 
+  text-align: center;  
+  line-height: 80rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #e3e3e3;
+}  
+.swiperTablist{  
+  font-size: 30rpx;  
+  display: inline-block; 
+  padding: 0 30rpx; 
+  color: #333333; 
+}  
+.on{ 
+  font-size: 30rpx;
+  color: #f51322;  
+  border-bottom: 5rpx solid #f51322;
+}  
+.swiperBox{ 
+  display: block; 
+  width: 100%; 
+  background-color: #f1f3f7;
+}
+.swiperBox scroll-view:nth-child(1){
+  height: 100%;
+}
+.swiperBox ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent; 
+}
+/* 申请退换货 */
+.afterGoods{
+ background-color: #fff;
+ margin-top: 20rpx;
+ border-top: solid #e4e4e4 1rpx;
+}
+.orderInfo{
+  width: 100%;
+  height: 54rpx;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 54rpx;
+  border-bottom: solid #e4e4e4 1rpx;
+}
+.orderInfo .left{
+  margin-left: 30rpx;
+}
+.orderInfo .right{
+  margin-left: 40rpx;
+}
+.goods{
+  width: 90%;
+  height: 150rpx;
+  padding: 30rpx 0;
+  margin: 0 auto;
+  border-bottom: solid #e4e4e4 1rpx;
+}
+.goods .left{
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+}
+.goods .left image{
+  width: 150rpx;
+  height: 150rpx;
+  border: solid #e4e4e4 2rpx;
+}
+.goods .right{
+  width: 490rpx;
+  height: 150rpx;
+  float: right;
+}
+.goods .goodsName{
+  width: 490rpx;
+  height: 80rpx;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+  float: left;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2; 
+}
+.goods .listName {
+  width: 490rpx;
+  height: 80rpx;
+  font-size: 26rpx;
+  margin-bottom: -15rpx;
+  color: #333;
+  float: left;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.goods .num{
+  float: left;
+  width: 150rpx;
+  height: 50rpx;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 70rpx;
+}
+.goods .after{
+  float: right;
+  width: 140rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+  padding: 0 16rpx; 
+  color: #f51322;
+  text-align: center;
+  border: solid #f51322 1rpx;
+  border-radius: 8rpx;
+}
+
+/* 退换货记录 */
+.afterList{
+ background-color: #fff;
+ margin-top: 20rpx;
+ border-top: solid #e4e4e4 1rpx;
+}
+.afterList .goods .goodsName{
+  width: 490rpx;
+  height: 60rpx;
+  font-size: 26rpx;
+  color: #333;
+  float: left;
+}
+.afterList .goods .num{
+  float: left;
+  width: 60%;
+  height: 30rpx;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 30rpx;
+}
+
+.afterList .goods .after{
+  float: right;
+  width: 30%;
+  height: 50rpx;
+  font-size: 30rpx;
+  padding: 0 2%; 
+  color: #f51322;
+  text-align: center;
+  border: solid #f51322 1rpx;
+  border-radius: 8rpx;
+  margin-top: 40rpx;
+}
+.afterList .goods .status{
+  float: left;
+  width: 300rpx;
+  height: 50rpx;
+  left: 0;
+  font-size: 30rpx;
+  color: #f51322;
+  text-align: left;
+  line-height: 80rpx;
+}
+
+/* 退款记录 */
+.refundList{
+ background-color: #fff;
+ margin-top: 20rpx;
+ border-top: solid #e4e4e4 1rpx;
+}
+.refund{
+  width: 90%;
+  height: 200rpx;
+  margin: 0 auto;
+}
+.refund .amount{
+  display: inline-block;
+  width: 100%;
+  height: 40rpx;
+  font-size: 32rpx;
+  color: #333;
+  margin-top: 10rpx;
+}
+.refund .channel{
+  display: inline-block;
+  width: 100%;
+  height: 40rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.refund .time{
+  width: 500rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  color: #666;
+  float: left;
+  line-height: 60rpx;
+}
+.refund .status{
+  width: 150rpx;
+  height: 40rpx;
+  font-size: 34rpx;
+  color: #f51322;
+  float: right;
+}

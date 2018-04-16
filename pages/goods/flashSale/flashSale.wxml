@@ -1,0 +1,70 @@
+<!--pages/goods/flashSale/flashSale.wxml-->
+<!-- 限时抢购分类导航  -->
+<view class='head'>
+  <scroll-view scroll-x="true" class='listScroll'>
+    <view class="tabList {{currentTab == -1 ? 'on' : ''}}" data-id='0' data-current="-1" bindtap="swichNav">
+      <text>全部商品</text>
+    </view>
+    <view wx:for="{{flashSaleNav}}" wx:for-index="idx" class="tabList {{currentTab == idx ? 'on' : ''}}" data-id='{{item.id}}' data-current="{{idx}}" bindtap="swichNav">
+      <text>{{item.phone_name}}</text>
+    </view>
+  </scroll-view>
+  <view class='pullMore' bindtap='btnShow'>
+    <image src='../../../images/pullMore.png'></image>
+  </view>
+</view>
+
+<!-- 限时抢购商品详情 -->
+<swiper class='flashDetail' style='height:{{winHeight-42}}px'>
+  <swiper-item>
+    <scroll-view scroll-y="true" class='flashGoods' style='height:{{height+470}}rpx' bindscrolltolower="loadMore" lower-threshold='10rpx'>
+      <view class='good' wx:for="{{goodsList}}" data-id='{{item.id}}' bindchange="bindChange">
+        <view class='gImg' bindtap='goodaDetail' data-id="{{item.id}}">
+          <image src='{{item.img}}'></image>
+        </view>
+        <view class='gDetail'>
+          <view class='gName'>{{item.title}}</view>
+          <view class='gPrice'>
+            <text class='activePrice'>￥{{item.sale_price}}</text>
+            <text class='oldPrice'>￥{{item.sell_price}}</text>
+          </view>
+          <view class='buy' bindtap='buy' data-id="{{item.id}}">
+            <view class='saleNum' wx:if="{{goodsType}}">
+              <text>已售{{relative[index]}}%</text>
+              <view class='box'>
+                <text style='width:{{(item.sell_num/item.max_num)*100}}%'></text>
+              </view>
+            </view>
+            <view class='saleNum' wx:if="{{!goodsType}}">
+              <text>已售 {{item.sell_num}}</text>
+            </view>
+            <text wx:if="{{item.sell_num >= item.max_num}}" style="background:#ccc">已售罄</text>
+            <text wx:else>立即抢购</text>            
+          </view>
+
+        </view>
+      </view>
+      <view class="tips">
+        <view class='noMore' wx:if="{{!hasMore}}"><text>没有更多内容了~</text></view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+<!-- 覆盖层 -->
+<view class="cover {{flag?'coverHide':'coverShow'}}">
+  <view class='container'>
+    <view class='top'>
+      <view>
+        <text>全部{{count}}个分类</text>
+      </view>
+      <view class="packUp" bindtap='btnShow'>
+        <image src='../../../images/pullMore.png'></image>
+      </view>
+    </view>
+    <view class='kindDetail'>
+      <text data-id='0' data-current="-1" bindtap='selectKind' class='{{currentTab == -1 ? "active" : ""}}'>全部商品</text>
+      <text wx:for="{{flashSaleNav}}" wx:for-index="idx" data-id='{{item.id}}' class="{{currentTab == idx ? 'active' : ''}}" data-current="{{idx}}" bindtap='selectKind'>{{item.phone_name}}</text>
+    </view>
+  </view>
+</view>

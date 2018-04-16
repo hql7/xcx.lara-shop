@@ -1,0 +1,84 @@
+/* 公共 */
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix:after{
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+}
+/* 公共部分头部 */
+.cHeader{
+  position: fixed;
+  top: 0;
+  left: 0;  
+  width: 100%;
+  height: 80rpx;
+  z-index: 100;
+  background: linear-gradient(to right,#ff285b,#ff2338);
+}
+ .search{
+  position: absolute;
+  top: 50%;
+  height: 48rpx;
+  min-height: 48rpx;  
+  margin-top: -24rpx;
+  width: 75%;
+  left: 13%;
+} 
+.searchInp{
+  height: 48rpx;
+  min-height: 48rpx;
+  padding-left: 58rpx;
+  font-size: 24rpx;
+  color: #555555;
+  outline: none;
+  border: none;
+  border-radius: 40rpx;
+  background: linear-gradient(to right,#ffe5e5,#ffe5e2);
+}
+.plcol{
+  color: #f51322;
+}
+.search icon{
+  position: absolute;
+  top: 50%;
+  margin-top: -13rpx;
+  left: 20rpx;
+  z-index: 10;
+}
+.cHeader .left,.cHeader .right{
+  position: absolute;
+  top: 0;  
+  width: 10%;
+  height: 100%;
+}
+.cHeader .left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 1%;
+  text-align: center;
+  color: #fff;
+}
+.cHeader .left text{  
+  font-size: 18px;
+}
+
+.cHeader .right{
+  right: 1%;  
+  display: flex;
+  flex-flow: column;
+  color: #fff;  
+  text-align: center;
+  justify-content: center;
+}
+.right .message{
+  font-size: 16rpx;
+  margin-top: -8rpx;
+}

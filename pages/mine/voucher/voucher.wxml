@@ -1,0 +1,50 @@
+<!--pages/mine/voucher/voucher.wxml-->
+<!-- 顶部 -->
+<view class='top'>
+  <text bindtap='voucherStatus' data-status='0'>未使用</text>
+  <text bindtap='voucherStatus' data-status='1'>已使用</text>
+  <text bindtap='voucherStatus' data-status='2'>已过期</text>
+</view>
+
+<!-- 优惠券  -->
+<view class='voucher' wx:for="{{voucher}}">
+  <view class='left'>
+    <view class='number'>
+      <text class='symbol'>￥</text>
+      <text class='num'>{{item.value}}</text>
+    </view>
+    <view class='condition'>满{{item.money}}可用</view>
+  </view>
+  <view class='leftBorder'>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+  </view>
+  <view class='right'>
+    <view class='content'>
+      <view class='text'>{{item.condition}}</view>
+      <view class='time'>{{item.start_time}}-{{item.end_time}}</view>
+      <view class='button' bindtap='use' data-id="{{item.id}}" wx:if="{{item.status == 0}}">立即使用</view>
+      <view class='over' wx:elif="{{item.status == 1}}">已使用</view>      
+      <view class='over' wx:else>已过期</view>
+    </view>
+  </view>
+  <view class='new' style='display:{{item.status == 0 ? "true" : "none"}}'></view>
+  <view class='small'></view>
+  <text class='title' style='display:{{item.status == 0 ? "true" : "none"}}'>新卷</text>
+</view>
+
+<!-- 去领券中心 -->
+<view class='goCenter' bindtap='goCenter'>去领券中心<text class='iconfont icon-enter'></text>
+</view>

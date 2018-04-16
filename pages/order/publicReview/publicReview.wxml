@@ -1,0 +1,50 @@
+<!--pages/order/publicReview/publicReview.wxml-->
+<form class='form' bindsubmit='fromSubmit'>
+  <scroll-view class='container' scroll-y="true">
+    <view class='orderNum'>订单编号：{{reviews.order_no}}</view>
+  <view class='review' wx:for="{{goods}}" wx:for-index="index" wx:for-item="item">
+    <view class='top'>
+      <image src='{{item.good_img}}' data-image='image'></image>
+      <view>
+        <text class='title'>描述商品相符</text>
+        <text class="iconfont icon-collection_fill {{item.star>=1? 'lightStar': ''}}" bindtap="changeColor" data-choose='1' data-index="{{index}}"></text>
+        <text class="iconfont icon-collection_fill {{item.star>=2? 'lightStar': ''}}" bindtap="changeColor" data-choose='2' data-index="{{index}}"></text>
+        <text class="iconfont icon-collection_fill {{item.star>=3? 'lightStar': ''}}" bindtap="changeColor" data-choose='3' data-index="{{index}}"></text>
+        <text class="iconfont icon-collection_fill {{item.star>=4? 'lightStar': ''}}" bindtap="changeColor" data-choose='4' data-index="{{index}}"></text>
+        <text class="iconfont icon-collection_fill {{item.star>=5? 'lightStar': ''}}" bindtap="changeColor" data-choose='5' data-index="{{index}}"></text>
+      </view>
+      <view class='point'>
+        <text wx:if="{{item.star == 1}}">差评</text>
+        <text wx:if="{{item.star == 2}}">中评</text>
+        <text wx:if="{{item.star == 3}}">中评</text>
+        <text wx:if="{{item.star == 4}}">好评</text>
+        <text wx:if="{{item.star == 5}}">好评</text>
+      </view>
+    </view>
+    <!-- 评价详情 -->
+    <view class='rDetail'>
+      <textarea name='{{index}}' placeholder='请填写您的评价，分享给想买的他们吧'>
+      </textarea>
+      <view class="page__bd">
+          <view class="weui-uploader">
+              <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files" id="uploaderFiles">
+                      <block wx:for="{{item.imgs}}" wx:for-index="idx" wx:for-item="itemName">
+                          <view class="weui-uploader__file" bindtap="previewImage" data-id="{{index}}">
+                              <image class="weui-uploader__img" src="{{itemName}}" mode="aspectFill" />
+                          </view>
+                      </block>
+                  </view>
+                  <view class="weui-uploader__input-box">
+                      <view class="weui-uploader__input" bindtap="chooseImage" data-index="{{index}}"></view>
+                  </view>
+              </view>
+          </view>
+    </view>
+    </view>
+  </view>
+  </scroll-view>
+  
+  <!--匿名  -->
+  <button class='submit' formType="submit" data-index="{{reviews.order_id}}">发布</button>
+</form>

@@ -1,0 +1,49 @@
+<!--pages/mine/addressEdit/addressEdit.wxml-->
+<view class='page'>
+  <view class="data-v-top"> </view>
+  <view class='address-edit'>
+  <form bindsubmit="formSubmit">
+    <view class="consignee">
+        <label class="consignee-title">收货人 : </label>
+        <input name="accept_name" placeholder="" />
+      </view>
+      <view class="phone">
+        <label class="consignee-title">手机号 :</label>
+        <input name="mobile" type="number" placeholder="" />
+      </view>
+   <view class="phone">
+        <label class="consignee-title">所在地 : </label> 
+        <view bindtap="selectDistrict" class='locationAddress'>{{areaInfo}}</view>
+      </view>
+            <view class="detail-addr">
+        <label class="consignee-title">详细地址 : </label>
+        <input name="addr" placeholder-style='font-size:22rpx;color:a3a3a3;padding-left:20rpx;' placeholder="街道、楼牌号" />
+      </view>
+      <button form-type='submit'>保存</button>
+  </form>
+  </view>
+</view>
+<view class="dialog-mask " style="visibility:{{isVisible ? 'visible': 'hidden'}}" bindtap="hideMenuTap " />
+<!--城市三级联动-->
+<!--使用动画时不能wx:if="{{city.length>0&&isVisible}}" ，不能hidden=''属性否则无动画效果-->
+ <view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+  <view style="height:10% ;width:95%;">
+    <text catchtap="cityCancel">取消</text>
+    <text style="float: right;color:#45c45d" catchtap="citySure">确定</text>
+  </view> 
+  <!--"可以显示默认的城市，使用后级联选择城市反应很慢就不使用了-->
+   <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{value}}" wx:key="">
+    <picker-view-column>
+      <view wx:for="{{provinces}}" class="picker-item">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{areas}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>  

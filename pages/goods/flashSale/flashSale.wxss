@@ -1,0 +1,233 @@
+/* pages/goods/flashSale/flashSale.wxss */
+
+/* 顶部分类列表  */
+.head{
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-top: 1rpx solid #efefef;
+  border-bottom: 1rpx solid #efefef;  
+}
+ ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+} 
+.listScroll{ 
+  white-space: nowrap;
+  width: 664rpx;
+  text-align: center;
+  line-height: 72rpx;
+} 
+.listScroll .list{
+  width: 100%;
+  height: 72rpx;
+}
+.flashGoods ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent; 
+}
+.tabList{  
+  font-size: 26rpx;  
+  display: inline-block; 
+  margin: 0 34rpx; 
+  color: #333333;
+  cursor: pointer; 
+}  
+.on{ 
+  color: #f51322;  
+  border-bottom: 4rpx solid #f51322;
+}
+.pullMore{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 84rpx;
+  height: 100%;
+  text-align: center;
+  border-left: 1rpx solid #ededed;
+}
+.pullMore image{
+  width: 20rpx;
+  height: 10rpx;
+}
+
+/* 抢购商品详情 */
+.flashDetail{
+  margin-top: 84rpx;
+}
+.flashDetail .flashGoods{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.flashGoods .good{
+  display: flex;
+  height: 230rpx;
+  border-bottom: 1rpx solid #d6d6d6;
+}
+.good .gImg image{
+  width: 170rpx;
+  height: 170rpx;
+  padding: 30rpx 20rpx;
+}
+.good .gDetail{
+  width: 524rpx;
+  padding: 30rpx 20rpx 30rpx 0;
+}
+.gDetail .gName{
+  height: 62rpx;
+  font-size: 24rpx;
+  color: #333333;
+  line-height: 30rpx;
+  overflow: hidden;
+  /* overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap; */
+}
+.gDetail .gPrice{
+  padding-top: 10rpx 0;
+  font-size: 28rpx;
+  color: #f51322;
+}
+.gPrice .oldPrice{
+  font-size: 24rpx;
+  color: #999999;
+  text-decoration: line-through;
+  margin-left: 20rpx;
+}
+
+.buy{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.gDetail .buy>text{
+  width: 156rpx;
+  height: 52rpx;
+  margin-top: 4rpx;
+  line-height: 52rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+  background-color: #f12b2c;  
+}
+
+.gDetail .saleNum{
+  display: flex;  
+  height: 22rpx;
+}
+.gDetail .saleNum text:nth-child(1){
+  font-size: 26rpx;
+  color: #999999;
+  white-space: nowrap;
+}
+.gDetail .saleNum .box{
+  position: relative;
+  top: 6rpx;  
+  width: 154rpx;
+  height: 20rpx;
+  margin-left: 6rpx;
+  border: 1rpx solid #ff6771;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.saleNum .box text{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #ff9a9b;
+}
+.tips .noMore{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  justify-content: center;  
+  padding-top: 50rpx;
+  font-size: 24rpx;
+  color: #333333;
+}
+
+/* 覆盖层 */
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, .7);
+}
+.cover .container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+}
+.cover .container .top{
+  display: flex;
+  height: 72rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #ededed;
+}
+.cover .container .top view:nth-child(1) text{
+  width: 644rpx; 
+  padding-left: 20rpx;
+  line-height: 72rpx;    
+  font-size: 26rpx;  
+  display: inline-block; 
+  color: #f51322;
+  cursor: pointer; 
+}
+.cover .container .top .packUp{
+  width: 84rpx;
+  height: 100%;
+  text-align: center;
+  border-left: 1rpx solid #ededed;
+} 
+ .cover .container .top image{
+  width: 20rpx;
+  height: 10rpx;
+} 
+.container .kindDetail{
+  width: 100%;
+  padding: 20rpx 0;
+  overflow: hidden;
+  background-color: #eff1f0;
+}
+.kindDetail text{
+  float: left;
+  margin: 20rpx;
+  margin-right: 0rpx;
+  width: 156rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #444444;
+  border-radius: 26rpx;  
+  border: 1rpx solid transparent;
+  background-color: #fff;
+}
+.over{
+  color: #f51322;
+  border: 1rpx solid #f97c80;
+}
+.coverHide{
+  display: none
+}
+.coverShow{
+  display: block
+}
+.kindDetail .active {
+  background: #f51322;
+  color:#fff;
+  font-weight:bold; 
+}

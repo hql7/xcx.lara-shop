@@ -1,0 +1,81 @@
+<!--pages/order/orderDetail/orderDetail.wxml-->
+<view class='top'>
+  <view class='status'>
+    <view class='left'>
+      <image src='../../../images/03.png'></image>
+      <text wx:if="{{orderInfo.comment == 0}}">待评价</text>
+      <text wx:if="{{orderInfo.comment == 1}}">已评价</text> 
+    </view>
+    <view class='right'>
+      <text>订单号：{{orderInfo.order_no}}</text>
+      <text>下单日期：{{orderInfo.pay_time}}</text>
+    </view>
+  </view>
+  <view class='info'>
+    <view class='left'>
+      <image src='../../../images/03.png'></image>
+      <text>{{addr[0]}}</text>
+    </view>
+    <view class='right'>
+      <image src='../../../images/03.png'></image>
+      <text>{{addr[1]}}</text>
+    </view>
+    <text class='address'>{{addr[2]}}</text>
+  </view>
+</view>
+
+<view class='shop'>
+  <image src='../../../images/03.png'></image>
+  <text>为尔商城</text>
+</view>
+<view class='goods' wx:for="{{orderInfo.order_goods}}">
+  <view class='left'>
+    <image src='{{item.img}}'></image>
+  </view>
+  <view class='right'>
+    <text>{{item.good_name}}</text>
+    <text>￥{{item.good_price}}*{{item.goods_nums}}</text>
+  </view>
+</view>
+<view class='orderinfo'>
+  <view>
+    <text class='left'>配送方式：</text>
+    <text class='right'>{{orderInfo.express_info.com}}</text>
+  </view>
+  <view>
+    <text class='left'>买家留言：</text>
+    <text class='right'>{{orderInfo.user_remark}}</text>
+  </view>
+  <view>
+    <text class='left'>商品金额：</text>
+    <text class='right'>￥{{orderInfo.goods_price}}</text>
+  </view>
+  <view>
+    <text class='left'>运费：</text>
+    <text class='right'>￥{{orderInfo.real_freight}}</text>
+  </view>
+  <view>
+    <text class='left'>优惠卷：</text>
+    <text class='right'>￥{{orderInfo.voucher_value}}</text>
+  </view>
+  <view>
+    <text class='left'>优惠：</text>
+    <text class='right'>-￥{{orderInfo.discount_amount}}</text>
+  </view>
+  <view>
+    <text class='left'>支付金额：</text>
+    <text class='right'>{{orderInfo.goods_price*1 + orderInfo.real_freight*1-orderInfo.voucher_value*1-orderInfo.discount_amount*1}}</text>
+  </view>
+</view>
+<view class='logistics'>
+  <text>物流单号：{{orderInfo.express_info.nu ? orderInfo.express_info.nu : "无"}}</text>
+  <text>国内快递：{{orderInfo.express_info.com ? orderInfo.express_info.com : "无"}}</text>
+  <text>物流信息：</text>
+  <view wx:if="{{express.length != 0}}" wx:for="{{express}}">
+    <text>{{item.time}}</text>
+    <text>{{item.context}}</text>  
+  </view>
+</view>
+<view class='bottom' wx:if="{{orderInfo.comment == 0}}">
+  <view class="right" bindtap='publicReview' data-id="{{orderInfo.order_id}}">去评价</view>
+</view>

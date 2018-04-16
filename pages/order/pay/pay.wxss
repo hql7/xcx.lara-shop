@@ -1,0 +1,70 @@
+/* pages/order/pay/pay.wxss */
+Page{
+  background-color: rgb(244,244,244);
+}
+.page {
+  height: 725rpx;
+  background: #fff;
+  margin-top:25rpx; 
+}
+.order-pay {
+  height:110rpx;
+  line-height: 110rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding:0 25rpx;
+  border-bottom: 1px solid #eee;
+}
+.order-pay-left {
+  padding-left:25rpx; 
+  font-size:22rpx;
+  color:#999;
+}
+.order-pay-right {
+  font-size:22rpx;
+  color:#333;
+}
+.order-pay-right text{
+  color:#f51322;
+  font-weight: bold;
+}
+.order-pay-mode {
+  font-size: 26rpx;
+  height: 95rpx;
+  font-weight: bold;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25rpx;
+  padding-left:50rpx; 
+  border-bottom: 1rpx solid #eee;
+}
+.pay-mode{
+ display: flex;
+ flex-flow:row;
+ align-items: center; 
+}
+.pay-mode image{
+  width:46rpx;
+  height:46rpx;
+  margin-right: 20rpx;
+}
+button {
+  width: 90%;
+  margin-top: 60rpx;
+  font-size: 28rpx;
+  border-radius: 8rpx;
+  background: -webkit-gradient(linear, left top, right top, from(#ff2764), to(#f51322));
+  color:#fff;
+  font-weight: bold;
+}
+.real-pay {
+  font-size: 24rpx;
+  color: #999;
+  margin-left:50rpx; 
+}
+.real-pay text {
+  color: #f40000;
+}

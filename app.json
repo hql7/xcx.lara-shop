@@ -1,0 +1,81 @@
+{
+  "pages":[
+    "pages/index/index",    
+    "pages/mine/personal/personal",    
+    "pages/goods/flashSale/flashSale",    
+    "pages/goods/reviews/reviews",    
+    "pages/logs/register/register",  
+    "pages/mine/myBalance/myBalance",
+    "pages/goods/goodsKind/goodsKind",    
+    "pages/mine/myPoints/myPoints",    
+    "pages/mine/accountPass/accountPass",    
+    "pages/order/appleRefund/appleRefund",    
+    "pages/logs/login/login",
+    "pages/mine/voucher/voucher",    
+    "pages/mine/voucherCenter/voucherCenter",
+    "pages/order/publicReview/publicReview",   
+    "pages/goods/goodslist/goodslist",
+    "pages/cart/cart",   
+    "pages/search/search", 
+    "pages/order/orderDetail/orderDetail",
+    "pages/news/shopInformation/shopInformation", 
+    "pages/order/afterDetail/afterDetail",
+    "pages/order/afterGoods/afterGoods",
+    "pages/order/afterPage/afterPage",  
+    "pages/mine/userInfo/userInfo",
+    "pages/mine/addressEdit/addressEdit",   
+    "pages/order/orderTrack/orderTrack",
+    "pages/order/myReviews/myReviews", 
+    "pages/order/checkedAddress/checkedAddress",   
+    "pages/mine/address/address",   
+    "pages/mine/msg/msg",
+    "pages/order/firm-order/firm-order",
+    "pages/order/pay/pay",
+    "pages/order/my-order/my-order",
+    "pages/mine/myFootprints/myFootprints", 
+    "pages/mine/myExtend/myExtend",
+    "pages/mine/myCollection/myCollection",
+    "pages/news/mallInformation/mallInformation",
+    "pages/member/helpDetail/helpDetail",   
+    "pages/member/helpCenter/helpCenter"
+    ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "LaraShop商城",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#6A6A6A",
+    "borderStyle": "white",
+    "backgroundColor": "#FFF",
+    "selectedColor": "#F51322",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/4.png",
+        "selectedIconPath": "images/04.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/goods/goodsKind/goodsKind",
+        "iconPath": "images/2.png",
+        "selectedIconPath": "images/02.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/1.png",
+        "selectedIconPath": "images/01.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/mine/personal/personal",
+        "iconPath": "images/3.png",
+        "selectedIconPath": "images/03.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

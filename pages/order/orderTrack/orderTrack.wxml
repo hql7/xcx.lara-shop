@@ -1,0 +1,40 @@
+<!--pages/order/orderTrack/orderTrack.wxml-->
+<view class='page'>
+  <view class="data-v-top"> </view>
+  <view class='express-detail'>
+    <view class='order-express-top'>
+     <view class='order-express'>
+      <view class='order-express-info'>
+      订单编号：<text>{{list['express_info']['nu']}}</text>
+      </view>
+      <view class='order-express-info'>
+      国内快递：<text>{{list['express_info']['com']}}</text>
+      </view>
+      <view class='order-express-info'>
+      预计送达：<text>{{list['create_time']}}</text>
+      </view>
+    </view>
+    <view class='order-express-img'>
+    <image src='#'></image>
+    </view> 
+  </view>
+  <view class='order-express-address' wx:for="{{list['data']}}">
+    <view class='order-address'>
+      <view class='{{orderAddress}}'>
+      {{item.context}}
+      </view>
+      <text class='order-track-time'>{{item.time}}</text>
+    </view>
+    <!-- <view class='order-address'>
+      <view class='order-track-address'>
+      感谢您在京东购物，欢迎您的光临！
+      </view>
+      <text class='order-track-time'>2017-03-12 13:53:37</text>
+    </view> -->
+  </view>
+  </view>
+</view>
+
+
+
+  

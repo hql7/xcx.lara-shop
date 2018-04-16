@@ -1,0 +1,261 @@
+/* pages/mine/voucherCenter/voucherCenter.wxss */
+/* 全部分类列表 */
+.head{
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-top: 1rpx solid #efefef;
+  border-bottom: 1rpx solid #efefef;  
+}
+.listScroll{ 
+  white-space: nowrap;
+  width: 664rpx;
+  text-align: center;
+  line-height: 72rpx;
+} 
+.listScroll .list{
+  width: 100%;
+  height: 72rpx;
+}
+.flashGoods ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent; 
+}
+.tabList{  
+  font-size: 26rpx;  
+  display: inline-block; 
+  margin: 0 34rpx; 
+  color: #333333;
+  cursor: pointer; 
+}  
+.on{ 
+  color: #f51322;  
+  border-bottom: 4rpx solid #f51322;
+}
+.pullMore{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 84rpx;
+  height: 100%;
+  text-align: center;
+  border-left: 1rpx solid #ededed;
+}
+.pullMore image{
+  width: 20rpx;
+  height: 10rpx;
+}
+.container{
+  margin-top: 74rpx;
+}
+.scrollArea{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.voucher{
+  position: relative;
+  width: 92%;
+  height: 160rpx;
+  background-color:#fff;
+  margin-left:4%;
+  margin-top: 30rpx;
+}
+.voucher .left{
+  float: left;
+  width: 30%;
+  height: 160rpx;
+  background: linear-gradient(to right, #46ccc4, #46cfb2);
+  color: #fff;
+}
+.left .number {
+  height: 50rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.left .number .symbol{
+  font-size: 20rpx;
+}
+.left .number .num{
+  font-size: 48rpx;
+  line-height: 50rpx;
+}
+.left .condition{
+  height: 22rpx;
+  font-size: 22rpx;
+  text-align: center;
+  margin-top: 30rpx;
+  line-height: 22rpx;
+}
+.voucher .leftBorder{
+  position: absolute;
+  width: 6rpx;
+  height: 160rpx;
+  background-color: #46cfb2;
+  margin-left: 30%;
+}
+.leftBorder text{
+  float: left;
+  width: 8rpx;
+  height: 8rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-top: 4rpx;
+}
+.voucher .right{
+  position: absolute;
+  width: 56%;
+  height: 130rpx;
+  margin-left: 34%;
+}
+.right .content{
+  width: 100%;
+  height: 100rpx;
+}
+.content .text{
+  height: 30rpx;
+  color: #333;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+}
+.content .text1{
+  height: 60rpx;
+  color: #333;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+}
+.content .time{
+  float: left;
+  bottom: 0rpx;
+  width: 60%;
+  color: #ababab;
+  font-size: 18rpx;
+   margin-top: 4rpx; 
+}
+.content .button{
+  float: right;
+  width: 140rpx;
+  height: 40rpx;
+  font-size: 26rpx;
+  border: solid #46cce4 1rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color:#46cce4; 
+  border-radius: 20rpx;
+}
+.new{
+  position: absolute;
+  right: 0;
+  border-top:40rpx solid #ffea00;
+  border-left:40rpx solid transparent;
+  border-right:40rpx solid #ffea00;
+  border-bottom: 40rpx solid transparent;
+}
+.small{
+  position: absolute;
+  right: 0;
+  border-top:18rpx solid #fff;
+  border-left:18rpx solid transparent;
+  border-right:18rpx solid #fff;
+  border-bottom: 18rpx solid transparent;
+}
+ .title{
+  position: absolute;
+  top:14rpx;
+  right: 7rpx;
+  color: #f63020;
+  font-size: 20rpx;
+  transform: rotate(45deg);
+} 
+.over{
+  float: right;
+  width: 140rpx;
+  height: 40rpx;
+  font-size: 26rpx;
+  border: solid #eeeeee 1rpx;
+  text-align: center;
+  line-height: 40rpx;
+  background: #f6f6f6;
+  color:#c1c1c1; 
+  border-radius: 20rpx;
+}
+
+/* 覆盖层 */
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, .7);
+}
+.cover .containers{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+}
+.cover .containers .top{
+  display: flex;
+  height: 72rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #ededed;
+}
+.cover .containers .top view:nth-child(1) text{
+  width: 644rpx; 
+  padding-left: 20rpx;
+  line-height: 72rpx;    
+  font-size: 26rpx;  
+  display: inline-block; 
+  color: #f51322;
+  cursor: pointer; 
+}
+.cover .containers .top .packUp{
+  width: 84rpx;
+  height: 100%;
+  text-align: center;
+  border-left: 1rpx solid #ededed;
+} 
+ .cover .containers .top image{
+  width: 20rpx;
+  height: 10rpx;
+} 
+.containers .kindDetail{
+  width: 100%;
+  padding: 20rpx 0;
+  overflow: hidden;
+  background-color: #eff1f0;
+}
+.kindDetail text{
+  float: left;
+  margin: 20rpx;
+  margin-right: 0rpx;
+  width: 156rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #444444;
+  border-radius: 26rpx;  
+  border: 1rpx solid transparent;
+  background-color: #fff;
+}
+.kindDetail .on{
+  color: #f51322;
+  border: 1rpx solid #f51322;
+}
+.over{
+  color: #f51322;
+  border: 1rpx solid #f97c80;
+}
+.coverHide{
+  display: none
+}
+.coverShow{
+  display: block
+}

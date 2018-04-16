@@ -1,0 +1,92 @@
+<!--pages/goods/goodslist/goodslist.wxml-->
+<!-- 头部  -->
+<view class='cHeader'>
+  <view class='search'>
+    <icon type='search' size="14" color="#f51322"></icon>
+    <input placeholder='搜索你想要的商品' bindfocus='skip'></input>
+  </view>
+</view>
+<!-- 导航 -->
+<view class="swiperTab">
+  <view class="swiperTablist {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" data-sort='0'>综合</view>
+  <view class="swiperTablist {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" data-sort='1'>销量</view>
+  <view class="swiperTablist {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav" data-sort='4'>价格</view>
+  <view class="swiperTablist" bindtap="filtrate">筛选</view>
+  <view class="swiperTablist" data-status="{{status}}" bindtap="cut"><text class="iconfont {{!status?'icon-heng':'icon-shu'}}"></text></view>
+</view>
+<scroll-view scroll-y="true" style='height:{{winHeight-80}}px' bindscrolltolower="loadMore" lower-threshold='10rpx'>
+  <view class='good'>
+    <view class='hotSale'>
+      <view class='hotGoodslist clearfix'>
+
+        <view class="hotGoods" wx:if="{{status == 0}}" wx:for="{{goodsList}}">
+          <view class='gImg' bindtap='goodaDetail' data-id="{{item.id}}">
+            <image src="{{item.img}}"></image>
+          </view>
+          <view class='gDespriction'>
+            <text class='gName'>{{item.name}}</text>
+            <text class='gPrice'>￥{{item.sell_price}}</text>
+            <view class='info'>
+              <text class='reviews'>{{item.reviews_num}}条评价</text>
+            </view>
+          </view>
+        </view>
+
+        <view class='goods' wx:if="{{status == 1}}" wx:for="{{goodsList}}">
+          <view class='good'>
+            <view class='left' bindtap='goodaDetail' data-id="{{item.id}}">
+              <image src="{{item.img}}"></image>
+            </view>
+            <view class='right'>
+              <view class='gName1' bindtap='goodaDetail' data-id="{{item.id}}">{{item.name}}</view>
+              <view class='gPrice1' bindtap='goodaDetail' data-id="{{item.id}}">
+                <text class='activePrice'>￥{{item.sell_price}}</text>
+              </view>
+              <view class='info1'>
+                <text>{{item.reviews_num}}条评价</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="tips" wx:if="{{!hasMore}}">
+    <view class='noMore'>
+      <text>没有更多内容了~</text>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 覆盖层 -->
+<view class="cover {{display?'coverShow':'coverHide'}}" bindtap='hideCate'>
+  <view class='content'>
+    <scroll-view class='scroll' scroll-y="true" style='height:{{winHeight}}px'>
+      <view class='cate'>
+        <view class='cate1'>筛选类型</view>
+        <view class='cate2'>
+          <text bindtap='select' data-type='1' data-id='1' class="{{selectType==1?'select':''}}">推荐商品</text>
+          <text bindtap='select' data-type='1' data-id='2' class="{{selectType==2?'select':''}}">优惠促销</text>
+          <text bindtap='select' data-type='1' data-id='3' class="{{selectType==3?'select':''}}">仅看有货</text>
+        </view>
+      </view>
+      <view class='cate'>
+        <view class='cate1'>价格区间</view>
+        <view class='cate2'>
+          <text bindtap='select' wx:for="{{price}}" wx:for-index="idx" data-type='2' data-id="{{idx}}" class="{{selectPrice===idx?'select':''}}">{{item}}</text>
+        </view>
+      </view>
+      <view class='cate'>
+        <view class='cate1'>品牌</view>
+        <view class='cate2'>
+          <text bindtap='select' wx:for="{{brands}}" data-type='3' data-id="{{item.id}}"  class="{{selectBrand==item.id?'select':''}}">{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+     <view class='button'>
+      <text bindtap='reset'>重置</text>
+      <text bindtap='submit'>确定</text>
+     </view>
+  </view>
+</view>

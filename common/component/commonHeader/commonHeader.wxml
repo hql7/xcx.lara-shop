@@ -1,0 +1,16 @@
+<template name="commonHeader">
+  <view class='cHeader'>
+    <view class='search'>
+      <icon type='search' size="14" color="#f51322"></icon>
+      <input placeholder='搜索' placeholder-class='plcol' class='searchInp'></input>
+    </view>
+    <view class='left'>
+      <text class='iconfont icon-saoma'></text>
+    </view>
+    <view class='right'>
+      <text class='iconfont icon-xiaoxi'></text>
+      <text class='message'>消息</text>
+    </view>
+  </view>
+</template>
+

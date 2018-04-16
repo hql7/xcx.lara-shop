@@ -1,0 +1,30 @@
+<!--pages/order/appleRefund/appleRefund.wxml-->
+<form bindsubmit='formSubmit'>
+<view class='goods'>
+  <view class='left'>
+    <image src='{{goodDetail.img}}'></image>
+  </view>
+  <view class='right'>
+    <text class='name'>{{goodDetail.good_name}}</text>
+    <text class='num'>数量：{{goodDetail.goods_nums}}</text>
+    <text class='price'>￥{{goodDetail.good_price}}</text>
+  </view>
+</view>
+
+<view class='goodsInfo'>
+  <view  class='serverType'>
+    <view class='stitle'>退款方式：</view>
+    <view class='refund'>
+    <view class='{{refundStyle == 0 ? styleClass : ""}} refundStyle' bindtap='refundStyle' data-refund_type="0">退回至账户余额</view>
+    <view class='{{refundStyle == 1 ? styleClass : ""}} refundStyle' bindtap='refundStyle' data-refund_type="1">退回至原支付中</view>
+    </view>
+  </view>
+  <view class='description'>
+    <text class='title'>退款原因：</text>
+    <textarea placeholder="请您如实填写申请原因" placeholder-class='hint' name="reason"/>
+  </view>
+  <view class='submitApple'>
+    <button form-type='submit' class='submit'>提交申请</button>    
+  </view>
+</view>
+</form>

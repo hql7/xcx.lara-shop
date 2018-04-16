@@ -1,0 +1,71 @@
+<!--pages/mine/voucherCenter/voucherCenter.wxml-->
+<view class='head'>
+  <scroll-view scroll-x="true" class='listScroll'>
+    <view class="tabList {{currentTab == -1 ? 'on' : ''}}" data-id='0' data-current="-1" bindtap="swichNav">
+      <text>全部类型</text>
+    </view>
+    <view wx:for="{{flashSaleNav}}" wx:for-index="idx" class="tabList {{currentTab == idx ? 'on' : ''}}" data-id='{{item.id}}' data-current="{{idx}}" bindtap="swichNav">
+      <text>{{item.phone_name}}</text>
+    </view>
+  </scroll-view>
+  <view class='pullMore' bindtap='btnShow'>
+    <text class='iconfont icon-xiangxiajiantou'></text>
+  </view>
+</view>
+
+<!-- 优惠券  -->
+<swiper class='container' style='height:{{winHeight-42}}px'>
+  <swiper-item>
+    <scroll-view scroll-y="true" class='scorllArea' duration="300" style='height:{{winHeight-42}}px' bindscrolltolower="loadMore" lower-threshold='10rpx'>
+      <view class='voucher' wx:for="{{voucher}}">
+        <view class='left'>
+          <view class='number'>
+            <text class='symbol'>￥</text>
+            <text class='num'>{{item.value}}</text>
+          </view>
+          <view class='condition'>满{{item.money}}可用</view>
+        </view>
+        <view class='leftBorder'>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+          <text></text>
+        </view>
+        <view class='right'>
+          <view class='content'>
+            <view class='text'>{{item.condition}}</view>
+            <view class='text1'>{{item.description}}</view>
+            <view class='time'>{{item.start_time}}-{{item.end_time}}</view>
+            <view class='button' bindtap='draw' data-id="{{item.id}}" wx:if="{{item.is_receive == 0&&item.store_num > 0}}">立即领取</view>
+            <view class='over' wx:if="{{item.is_receive == 1}}">已领取</view>
+            <view class='over' wx:if="{{item.is_receive != 1&&item.store_num == 0}}">已领完</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+<!-- 覆盖层 -->
+<view class="cover {{flag?'coverHide':'coverShow'}}">
+  <view class='containers'>
+    <view class='top'>
+      <view><text>全部{{count}}个分类</text></view>
+      <view class="packUp" bindtap='btnShow'><image src='../../../images/pullMore.png'></image></view>
+    </view>
+    <view class='kindDetail'>
+      <text data-id='0' data-current="-1" class="{{currentTab == -1 ? 'on' : ''}}" bindtap='selectKind'>全部分类</text>
+      <text wx:for="{{flashSaleNav}}" wx:for-index="idx" data-id='{{item.id}}' data-current="{{idx}}" class="{{currentTab == idx ? 'on' : ''}}" bindtap='selectKind'>{{item.phone_name}}</text>
+    </view>
+  </view>
+</view>

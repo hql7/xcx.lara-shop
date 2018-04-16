@@ -1,0 +1,79 @@
+<!--pages/order/afterDetail/afterDetail.wxml-->
+<view class='top'>
+  <text class='status' wx:if="{{list.status == 0}}">待审核中</text>
+  <text class='status' wx:if="{{list.status == 1}}">审核通过</text>
+  <text class='status' wx:if="{{list.status == 2}}">审核失败</text>
+  <text class='status' wx:if="{{list.status == 3}}">已发货</text>
+  <text class='status' wx:if="{{list.status == 4}}">已完成</text>
+  <text class='status' wx:if="{{list.status == 5}}">已取消</text>
+  <text class='status' wx:if="{{list.status == 6}}">已收货</text>
+  <text class='status' wx:if="{{list.status == 7}}">已拒签</text>
+  
+  <text class='time'>{{list.apply_time}}</text>
+</view>
+<view class='price'>
+  <view class='amount'>
+    <text class='left'>退款总金额</text>
+    <text class='right'>￥{{list.amount}}</text>
+  </view>
+  <view class='refundType'>
+    <text>退回账户余额</text>
+    <text class='right'>￥{{list.amount}}</text>
+  </view>
+</view>
+<view class='process'>
+  <view class='processInfo'>
+    <view class='left'>
+      <text>售后进度说明</text>
+    </view>
+    <view class='right'>
+      <scroll-view scroll-y='true' style="height: 300rpx;">
+          <text class='title'>处理环节</text>
+          <view class='info' wx:for="{{list.after_process}}">
+            <view class='actIntro'>
+              <view>时间：{{item.time}}</view>
+              <view>处理意见：{{item.remark}}</view>
+              <view>处理人：{{item.act_user}}</view>
+            </view>
+          </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='cancel'  wx:if="{{list.status == 0}}" bindtap='bindService' data-return_id="{{list.return_id}}">取消服务</view>
+  <text class='hint' wx:if="{{list.status == 0}}">取消服务单将撤销售后服务，如果您的订单已经在售后服务中请谨慎操作</text>
+</view>
+<view class='sellerInfo'>
+  <text class='title' wx:if="{{list.status == 1}}">商家收货信息</text>
+  <text class='info' wx:if="{{list.status == 1}}">收货人： {{list.accept_name}} </text>
+  <text class='info' wx:if="{{list.status == 1}}">收货地址：{{list.seller_info.location}}</text>
+  <text class='title'>退货说明</text>
+  <text class='info'>七天无理由退货需要注意一下几点</text>
+  <text class='condition'>1.保证商品未使用过，不影响二次销售。  </text>
+  <text class='condition'>2.请用纸条写上：订单号、姓名、电话号码、退货原因、放在退回包裹内。</text>
+  <text class='condition'>3.请用原箱子，包装好退回。</text>
+  <text class='condition'>4.寄出后，请向客服团购退回快递底单，方便客服为您跟进。</text>
+  <text class='condition'>5.请用普通快递退回即可，不接受到付款。</text>
+  <text class='condition'>6.退货运费买家自理.</text>
+  <view class='xian'></view>
+  <text class='remind'>未与商家协商一致，请勿使用到付或平邮，以免商家拒签货物</text>
+  <text class='remind'>交易的钱款还在商城账户，确保您资金安全</text>
+  <text class='remind'>请填写真实退货物流信息，逾期未填写，退货申请将关闭</text>
+  <form wx:if="{{list.status == 1}}" bindsubmit='formSubmit'>
+    <view class="weui-cell weui-cell_select com">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">快递公司</view>
+        </view>
+        <view class="weui-cell__bd">
+            <picker bindchange="bindCountryChange" value="{{index}}" range='{{express}}' >
+                 <view class="weui-select weui-select_in-select-after">{{express[index]}}</view> 
+            </picker>
+        </view>
+    </view>
+    <view class='no'>
+      <label>物流单号</label>
+      <input name="express_no" placeholder='请填写您的物流单号，商家可通过物流单号快速受理'></input>
+    </view>
+    <button form-type='submit' data-return_id="{{list.return_id}}">确定提交</button>
+  </form>
+</view>
+

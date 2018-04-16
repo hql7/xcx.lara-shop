@@ -1,0 +1,25 @@
+<!--pages/mine/accountPass/accountPass.wxml-->
+<view class='form'>
+  <form bindsubmit="formSubmit">
+    <view class='phone'>
+      <text>手机号</text>
+      <input name='account' type='number' maxlength='11' placeholder='请输入手机号' placeholder-class="phcolor" bindblur='phone'></input>
+    </view>
+
+    <view class='code'>
+      <text>手机验证码</text>
+      <input name='code' type='number' maxlength='6' placeholder='验证码' placeholder-class="phcolor"></input>
+      <text class='gain' bindtap='code'>{{msg}}</text>
+    </view> 
+    <view class='password'>
+      <text>设置密码</text>
+      <input name='password' id="password" password='true' placeholder='支付密码' placeholder-class="phcolor"></input>
+    </view>
+    <view class='psd'>
+      <text>确认密码</text>
+      <input name="password_again" id="password_again" password='true' placeholder='确认密码' placeholder-class="phcolor"></input>
+    </view>
+    <button class='register' formType='submit'>提交支付密码</button>
+  </form>
+</view>
+
